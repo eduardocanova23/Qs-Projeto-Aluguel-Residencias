@@ -1,0 +1,37 @@
+{
+    "fields": [
+        {
+            "fieldName": "travelAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "entityType": "start-form",
+    "processBpmnId": "airbnbprocess",
+    "processEntityName": "airbnbprocess",
+    "domainEntityName": "RentalPlan",
+    "service": "serviceClass",
+    "dto": "mapstruct",
+    "jpaMetamodelFiltering": false,
+    "readOnly": false,
+    "pagination": "no",
+    "name": "AirBnBFakeStartForm",
+    "changelogDate": "20230613000002",
+    "skipFakeData": true
+}
