@@ -23,9 +23,6 @@
     ],
     "relationships": [],
     "entityType": "start-form",
-    "processBpmnId": "airbnbprocess",
-    "processEntityName": "airbnbprocess",
-    "domainEntityName": "RentalPlan",
     "service": "serviceClass",
     "dto": "mapstruct",
     "jpaMetamodelFiltering": false,
@@ -33,5 +30,8 @@
     "pagination": "no",
     "name": "AirBnBFakeStartForm",
     "changelogDate": "20230613000002",
-    "skipFakeData": true
+    "skipFakeData": true,
+    "processBpmnId": "airbnbprocess",
+    "processEntityName": "airbnbprocess",
+    "domainEntityName": "RentalPlan"
 }

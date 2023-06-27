@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0n4b3j0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0n4b3j0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="airbnbprocess" name="AirBnBFake" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_0mjys7h</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:userTask id="Activity_0cbwsx7" name="Browse through available residences">
+    <bpmn:userTask id="BrowseResidences" name="Browse through available residences">
       <bpmn:incoming>Flow_0mjys7h</bpmn:incoming>
       <bpmn:outgoing>Flow_0xk41zt</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0mjys7h" sourceRef="StartEvent_1" targetRef="Activity_0cbwsx7" />
-    <bpmn:userTask id="Activity_16t7lme" name="Choose residence">
+    <bpmn:sequenceFlow id="Flow_0mjys7h" sourceRef="StartEvent_1" targetRef="BrowseResidences" />
+    <bpmn:userTask id="ChooseResidence" name="Choose residence">
       <bpmn:incoming>Flow_0xk41zt</bpmn:incoming>
       <bpmn:outgoing>Flow_0dh77u7</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0xk41zt" sourceRef="Activity_0cbwsx7" targetRef="Activity_16t7lme" />
-    <bpmn:serviceTask id="Activity_1soij6x" name="Process payment">
+    <bpmn:sequenceFlow id="Flow_0xk41zt" sourceRef="BrowseResidences" targetRef="ChooseResidence" />
+    <bpmn:sequenceFlow id="Flow_0dh77u7" sourceRef="ChooseResidence" targetRef="PaymentProcess" />
+    <bpmn:sequenceFlow id="Flow_0ksfbmm" sourceRef="PaymentProcess" targetRef="CommunicationBetweenParts" />
+    <bpmn:endEvent id="Event_1b44rwg">
+      <bpmn:incoming>Flow_10zcpym</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10zcpym" sourceRef="CommunicationBetweenParts" targetRef="Event_1b44rwg" />
+    <bpmn:userTask id="CommunicationBetweenParts" name="Establish communication between renter and proprietary">
+      <bpmn:incoming>Flow_0ksfbmm</bpmn:incoming>
+      <bpmn:outgoing>Flow_10zcpym</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="PaymentProcess" name="Process payment">
       <bpmn:incoming>Flow_0dh77u7</bpmn:incoming>
       <bpmn:outgoing>Flow_0ksfbmm</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0dh77u7" sourceRef="Activity_16t7lme" targetRef="Activity_1soij6x" />
-    <bpmn:serviceTask id="Activity_095q89z" name="Establish communication between renter and proprietary">
-      <bpmn:incoming>Flow_0ksfbmm</bpmn:incoming>
-      <bpmn:outgoing>Flow_0515rtt</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="Flow_0ksfbmm" sourceRef="Activity_1soij6x" targetRef="Activity_095q89z" />
-    <bpmn:sequenceFlow id="Flow_0515rtt" sourceRef="Activity_095q89z" targetRef="Event_1194fh1" />
-    <bpmn:endEvent id="Event_1194fh1" name="Inform renter and proprietary&#10;">
-      <bpmn:incoming>Flow_0515rtt</bpmn:incoming>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_14yix8a" />
-    </bpmn:endEvent>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="airbnbprocess">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0cbwsx7_di" bpmnElement="Activity_0cbwsx7">
+      <bpmndi:BPMNShape id="Activity_0cbwsx7_di" bpmnElement="BrowseResidences">
         <dc:Bounds x="270" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_16t7lme_di" bpmnElement="Activity_16t7lme">
+      <bpmndi:BPMNShape id="Activity_16t7lme_di" bpmnElement="ChooseResidence">
         <dc:Bounds x="430" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1soij6x_di" bpmnElement="Activity_1soij6x">
-        <dc:Bounds x="590" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_095q89z_di" bpmnElement="Activity_095q89z">
-        <dc:Bounds x="750" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1194fh1_di" bpmnElement="Event_1194fh1">
+      <bpmndi:BPMNShape id="Event_1b44rwg_di" bpmnElement="Event_1b44rwg">
         <dc:Bounds x="912" y="99" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="889" y="142" width="85" height="40" />
-        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13yfvfe_di" bpmnElement="CommunicationBetweenParts">
+        <dc:Bounds x="750" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1cw039k_di" bpmnElement="PaymentProcess">
+        <dc:Bounds x="590" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0mjys7h_di" bpmnElement="Flow_0mjys7h">
         <di:waypoint x="215" y="117" />
@@ -73,16 +67,10 @@
         <di:waypoint x="690" y="117" />
         <di:waypoint x="750" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0515rtt_di" bpmnElement="Flow_0515rtt">
+      <bpmndi:BPMNEdge id="Flow_10zcpym_di" bpmnElement="Flow_10zcpym">
         <di:waypoint x="850" y="117" />
         <di:waypoint x="912" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Event_1194fh1_di" bpmnElement="Event_1194fh1">
-        <dc:Bounds x="912" y="99" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="889" y="142" width="85" height="40" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

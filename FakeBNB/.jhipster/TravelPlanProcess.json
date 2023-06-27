@@ -1,0 +1,46 @@
+{
+    "fields": [
+      {
+        "fieldName": "targetAddress",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "userName",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "userEmail",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "startDate",
+        "fieldType": "LocalDate"
+      },
+      {
+        "fieldName": "endDate",
+        "fieldType": "LocalDate"
+      },
+      {
+        "fieldName": "rentalConfirmationNumber",
+        "fieldType": "String"
+      }
+    ],
+    "relationships": [
+      {
+        "relationshipName": "Residence",
+        "otherEntityName": "Residence",
+        "relationshipType": "many-to-one",
+        "otherEntityField": "name"
+      }
+    ],
+    "entityType": "domain",
+    "service": "serviceClass",
+    "dto": "mapstruct",
+    "jpaMetamodelFiltering": false,
+    "readOnly": true,
+    "pagination": "no",
+    "name": "RentalPlan",
+    "changelogDate": "20230613000003",
+    "skipFakeData": true
+  }
+  
