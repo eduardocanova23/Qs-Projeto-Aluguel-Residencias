@@ -1,0 +1,21 @@
+{
+  "airBnBFakeApp": {
+    "rentalPlan": {
+      "home": {
+        "title": "Rental Plans",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Rental Plans found"
+      },
+      "detail": {
+        "title": "Rental Plan"
+      },
+      "id": "ID",
+      "targetAddress": "Target Address",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "rentalConfirmationNumber": "Rental Confirmation Number"
+    }
+  }
+}

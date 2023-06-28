@@ -1,0 +1,29 @@
+{
+  "airBnBFakeApp": {
+    "rentalPlanProcess": {
+      "home": {
+        "title": "Rental Plan Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rental Plan Process",
+        "createOrEditLabel": "Create or edit a Rental Plan Process",
+        "notFound": "No Rental Plan Processes found"
+      },
+      "created": "A new Rental Plan Process is created with identifier {{ param }}",
+      "updated": "A Rental Plan Process is updated with identifier {{ param }}",
+      "deleted": "A Rental Plan Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rental Plan Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Rental Plan Process"
+      },
+      "id": "ID",
+      "targetAddress": "Target Address",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "rentalConfirmationNumber": "Rental Confirmation Number"
+    }
+  }
+}

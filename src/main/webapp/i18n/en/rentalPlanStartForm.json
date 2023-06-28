@@ -1,0 +1,30 @@
+{
+  "airBnBFakeApp": {
+    "rentalPlanStartForm": {
+      "home": {
+        "title": "Rental Plan Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rental Plan Start Form",
+        "createOrEditLabel": "Create or edit a Rental Plan Start Form",
+        "notFound": "No Rental Plan Start Forms found"
+      },
+      "created": "A new Rental Plan Start Form is created with identifier {{ param }}",
+      "updated": "A Rental Plan Start Form is updated with identifier {{ param }}",
+      "deleted": "A Rental Plan Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rental Plan Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Rental Plan Start Form"
+      },
+      "id": "ID",
+      "targetCity": "Target City",
+      "targetNeighboorhood": "Target Neighboorhood",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "userPhoneNumber": "User Phone Number"
+    }
+  }
+}
