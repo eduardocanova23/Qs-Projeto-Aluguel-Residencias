@@ -1,0 +1,28 @@
+{
+  "airBnBFakeApp": {
+    "livingQuarters": {
+      "home": {
+        "title": "Living Quarters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Living Quarters",
+        "createOrEditLabel": "Create or edit a Living Quarters",
+        "notFound": "No Living Quarters found"
+      },
+      "created": "A new Living Quarters is created with identifier {{ param }}",
+      "updated": "A Living Quarters is updated with identifier {{ param }}",
+      "deleted": "A Living Quarters is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Living Quarters {{ id }}?"
+      },
+      "detail": {
+        "title": "Living Quarters"
+      },
+      "id": "ID",
+      "name": "Name",
+      "city": "City",
+      "neighborhood": "Neighborhood",
+      "description": "Description",
+      "image": "Image"
+    }
+  }
+}
