@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01sauym" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:process id="RentalPlanProcess" name="Rental Plan Process" isExecutable="true">
+    <bpmn:documentation>**Interested in finding the best places to accomodate you during your travel?.**
+Sure, creating a Pinterest board full of gorgeous pictures is fun, but then you start trying to figure out the actual logistics and it hits you … oh god, this is SO MUCH WORK.
+
+Traveling should be tolerable, even when the motive behind it is your job. It doens't need to cause anxiety and be hard to set everything up. 
+
+**Here, at AirBnBFake, we are commited to make the whole rental process as easy as possible so that all that pressure is lifted off your shoulders.**</bpmn:documentation>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0o8n5w6</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="InsertTravelDetails" name="Insert Travel Details">
+      <bpmn:incoming>Flow_0o8n5w6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1p89g5y</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0o8n5w6" sourceRef="StartEvent_1" targetRef="InsertTravelDetails" />
+    <bpmn:endEvent id="EndEvent">
+      <bpmn:incoming>Flow_1p89g5y</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1p89g5y" sourceRef="InsertTravelDetails" targetRef="EndEvent" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18m81on_di" bpmnElement="InsertTravelDetails">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0smzmgp_di" bpmnElement="EndEvent">
+        <dc:Bounds x="432" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_0o8n5w6">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1p89g5y_di" bpmnElement="Flow_1p89g5y">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="432" y="117" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
