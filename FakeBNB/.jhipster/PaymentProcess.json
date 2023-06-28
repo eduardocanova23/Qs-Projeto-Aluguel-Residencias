@@ -1,7 +1,15 @@
 {
     "fields": [
       {
-        "fieldName": "targetAddress",
+        "fieldName": "cardNumber",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "CVV",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "expirationDate",
         "fieldType": "String"
       },
       {
@@ -13,15 +21,7 @@
         "fieldType": "String"
       },
       {
-        "fieldName": "startDate",
-        "fieldType": "LocalDate"
-      },
-      {
-        "fieldName": "endDate",
-        "fieldType": "LocalDate"
-      },
-      {
-        "fieldName": "rentalConfirmationNumber",
+        "fieldName": "phoneNumber",
         "fieldType": "String"
       }
     ],
@@ -33,13 +33,15 @@
         "otherEntityField": "name"
       }
     ],
-    "entityType": "domain",
+    "entityType": "process-binding",
+    "processBpmnId": "FakeAirBnBProcess",
+    "domainEntityName": "Payment",
     "service": "serviceClass",
     "dto": "mapstruct",
     "jpaMetamodelFiltering": false,
     "readOnly": true,
     "pagination": "no",
-    "name": "RentalPlan",
+    "name": "PaymentProcess",
     "changelogDate": "20230613000003",
     "skipFakeData": true
   }
