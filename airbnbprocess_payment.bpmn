@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0zodne3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="FakeAirBnBProcess" name="FakeAirBnBProcess" isExecutable="true">
+    <bpmn:userTask id="PaymentDetails" name="Write Payment Details">
+      <bpmn:incoming>Flow_1mk8cat</bpmn:incoming>
+      <bpmn:outgoing>Flow_189yz4l</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:task id="ProcessPayment" name="Process Payment">
+      <bpmn:incoming>Flow_189yz4l</bpmn:incoming>
+      <bpmn:outgoing>Flow_176m8t2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="ProcessReservation" name="Process Reservation">
+      <bpmn:incoming>Flow_176m8t2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0h6gp1d</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_176m8t2" sourceRef="ProcessPayment" targetRef="ProcessReservation" />
+    <bpmn:sequenceFlow id="Flow_189yz4l" sourceRef="PaymentDetails" targetRef="ProcessPayment" />
+    <bpmn:startEvent id="Event_0cwcd9u">
+      <bpmn:outgoing>Flow_1mk8cat</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_12g4zc1">
+      <bpmn:incoming>Flow_0h6gp1d</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1mk8cat" sourceRef="Event_0cwcd9u" targetRef="PaymentDetails" />
+    <bpmn:sequenceFlow id="Flow_0h6gp1d" sourceRef="ProcessReservation" targetRef="Event_12g4zc1" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="FakeAirBnBProcess">
+      <bpmndi:BPMNShape id="Activity_10gz41n_di" bpmnElement="PaymentDetails">
+        <dc:Bounds x="270" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mjief4_di" bpmnElement="ProcessPayment">
+        <dc:Bounds x="450" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0asy6ds_di" bpmnElement="ProcessReservation">
+        <dc:Bounds x="600" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0cwcd9u_di" bpmnElement="Event_0cwcd9u">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_12g4zc1_di" bpmnElement="Event_12g4zc1">
+        <dc:Bounds x="782" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_176m8t2_di" bpmnElement="Flow_176m8t2">
+        <di:waypoint x="550" y="120" />
+        <di:waypoint x="600" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_189yz4l_di" bpmnElement="Flow_189yz4l">
+        <di:waypoint x="370" y="120" />
+        <di:waypoint x="450" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mk8cat_di" bpmnElement="Flow_1mk8cat">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="270" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0h6gp1d_di" bpmnElement="Flow_0h6gp1d">
+        <di:waypoint x="700" y="120" />
+        <di:waypoint x="782" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
