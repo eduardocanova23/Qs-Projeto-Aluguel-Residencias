@@ -1,75 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0n4b3j0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
   <bpmn:process id="airbnbprocess" name="AirBnBFake" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1">
-      <bpmn:outgoing>Flow_0mjys7h</bpmn:outgoing>
-    </bpmn:startEvent>
+    <bpmn:startEvent id="StartEvent_1" />
+    <bpmn:userTask id="Register" name="Register">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Register" />
+    <bpmn:userTask id="Login" name="Login">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Register" targetRef="Login" />
     <bpmn:userTask id="BrowseResidences" name="Browse through available residences">
-      <bpmn:incoming>Flow_0mjys7h</bpmn:incoming>
-      <bpmn:outgoing>Flow_0xk41zt</bpmn:outgoing>
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:incoming>Flow_6unliked</bpmn:incoming>
+      <bpmn:incoming>Flow_9disapproved</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0mjys7h" sourceRef="StartEvent_1" targetRef="BrowseResidences" />
-    <bpmn:userTask id="ChooseResidence" name="Choose residence">
-      <bpmn:incoming>Flow_0xk41zt</bpmn:incoming>
-      <bpmn:outgoing>Flow_0dh77u7</bpmn:outgoing>
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Login" targetRef="BrowseResidences" />
+    <bpmn:userTask id="ViewDetails" name="View Details">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1c8vr5d</bpmn:outgoing>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0xk41zt" sourceRef="BrowseResidences" targetRef="ChooseResidence" />
-    <bpmn:sequenceFlow id="Flow_0dh77u7" sourceRef="ChooseResidence" targetRef="PaymentProcess" />
-    <bpmn:sequenceFlow id="Flow_0ksfbmm" sourceRef="PaymentProcess" targetRef="CommunicationBetweenParts" />
-    <bpmn:endEvent id="Event_1b44rwg">
-      <bpmn:incoming>Flow_10zcpym</bpmn:incoming>
+    <bpmn:userTask id="ReservationAttempt" name="Book Reservation Attempt">
+      <bpmn:incoming>Flow_6liked</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>Flow_14</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_10zcpym" sourceRef="CommunicationBetweenParts" targetRef="Event_1b44rwg" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="BrowseResidences" targetRef="ViewDetails" />
+    <bpmn:exclusiveGateway id="Gateway_0xh7eaz">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6liked</bpmn:outgoing>
+      <bpmn:outgoing>Flow_6unliked</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="ViewDetails" targetRef="Gateway_0xh7eaz" />
+    <bpmn:sequenceFlow id="Flow_6liked" sourceRef="Gateway_0xh7eaz" targetRef="ReservationAttempt" />
+    <bpmn:sequenceFlow id="Flow_6unliked" sourceRef="Gateway_0xh7eaz" targetRef="BrowseResidences" />
+    <bpmn:userTask id="ProprietaryApproval" name="Waiting for Proprietary Approval">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="ReservationAttempt" targetRef="ProprietaryApproval" />
     <bpmn:userTask id="CommunicationBetweenParts" name="Establish communication between renter and proprietary">
-      <bpmn:incoming>Flow_0ksfbmm</bpmn:incoming>
-      <bpmn:outgoing>Flow_10zcpym</bpmn:outgoing>
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="PaymentProcess" name="Process payment">
-      <bpmn:incoming>Flow_0dh77u7</bpmn:incoming>
-      <bpmn:outgoing>Flow_0ksfbmm</bpmn:outgoing>
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="CommunicationBetweenParts" targetRef="EndEvent_1" />
+    <bpmn:exclusiveGateway id="Gateway_0yftpc0">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:outgoing>Flow_9approved</bpmn:outgoing>
+      <bpmn:outgoing>Flow_9disapproved</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Payment" name="Payment">
+      <bpmn:incoming>Flow_9approved</bpmn:incoming>
+      <bpmn:incoming>Flow_11paymentrejected</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="ProprietaryApproval" targetRef="Gateway_0yftpc0" />
+    <bpmn:sequenceFlow id="Flow_9approved" sourceRef="Gateway_0yftpc0" targetRef="Payment" />
+    <bpmn:sequenceFlow id="Flow_9disapproved" sourceRef="Gateway_0yftpc0" targetRef="BrowseResidences" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="ReservationConfirmed" targetRef="CommunicationBetweenParts" />
+    <bpmn:userTask id="ReservationConfirmed" name="Reservation Confirmed">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1awln30">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11paymentaccepted</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11paymentrejected</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="PaymentConfirmed" name="Payment Confirmed">
+      <bpmn:incoming>Flow_11paymentaccepted</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Payment" targetRef="Gateway_1awln30" />
+    <bpmn:sequenceFlow id="Flow_11paymentaccepted" sourceRef="Gateway_1awln30" targetRef="PaymentConfirmed" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="PaymentConfirmed" targetRef="ReservationConfirmed" />
+    <bpmn:sequenceFlow id="Flow_11paymentrejected" sourceRef="Gateway_1awln30" targetRef="Payment" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="airbnbprocess">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <dc:Bounds x="152" y="192" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0cbwsx7_di" bpmnElement="BrowseResidences">
-        <dc:Bounds x="270" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_1frv2yt_di" bpmnElement="Register">
+        <dc:Bounds x="250" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04lnps3_di" bpmnElement="Login">
+        <dc:Bounds x="400" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ea9pd2_di" bpmnElement="BrowseResidences">
+        <dc:Bounds x="550" y="170" width="140" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1hfmyjc_di" bpmnElement="ViewDetails">
+        <dc:Bounds x="760" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ga1ot8_di" bpmnElement="ProprietaryApproval">
+        <dc:Bounds x="1230" y="170" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_16t7lme_di" bpmnElement="ChooseResidence">
-        <dc:Bounds x="430" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_0dx5zd3_di" bpmnElement="Payment">
+        <dc:Bounds x="1470" y="170" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1b44rwg_di" bpmnElement="Event_1b44rwg">
-        <dc:Bounds x="912" y="99" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_0yftpc0_di" bpmnElement="Gateway_0yftpc0" isMarkerVisible="true">
+        <dc:Bounds x="1375" y="185" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_13yfvfe_di" bpmnElement="CommunicationBetweenParts">
-        <dc:Bounds x="750" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_1epdmkm_di" bpmnElement="ReservationAttempt">
+        <dc:Bounds x="1040" y="170" width="120" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1cw039k_di" bpmnElement="PaymentProcess">
-        <dc:Bounds x="590" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Gateway_0xh7eaz_di" bpmnElement="Gateway_0xh7eaz" isMarkerVisible="true">
+        <dc:Bounds x="925" y="185" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_0mjys7h_di" bpmnElement="Flow_0mjys7h">
-        <di:waypoint x="215" y="117" />
-        <di:waypoint x="270" y="117" />
+      <bpmndi:BPMNShape id="Gateway_1awln30_di" bpmnElement="Gateway_1awln30" isMarkerVisible="true">
+        <dc:Bounds x="1625" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1ed6txg_di" bpmnElement="EndEvent_1">
+        <dc:Bounds x="2162" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19fb8js_di" bpmnElement="CommunicationBetweenParts">
+        <dc:Bounds x="2020" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0fwce47_di" bpmnElement="ReservationConfirmed">
+        <dc:Bounds x="1880" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_04p6p03_di" bpmnElement="PaymentConfirmed">
+        <dc:Bounds x="1720" y="170" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1jkzvne_di" bpmnElement="Flow_1">
+        <di:waypoint x="188" y="210" />
+        <di:waypoint x="250" y="210" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0xk41zt_di" bpmnElement="Flow_0xk41zt">
-        <di:waypoint x="370" y="117" />
-        <di:waypoint x="430" y="117" />
+      <bpmndi:BPMNEdge id="Flow_06rlkt0_di" bpmnElement="Flow_2">
+        <di:waypoint x="350" y="210" />
+        <di:waypoint x="400" y="210" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0dh77u7_di" bpmnElement="Flow_0dh77u7">
-        <di:waypoint x="530" y="117" />
-        <di:waypoint x="590" y="117" />
+      <bpmndi:BPMNEdge id="Flow_0xsp4b0_di" bpmnElement="Flow_3">
+        <di:waypoint x="500" y="210" />
+        <di:waypoint x="550" y="210" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0ksfbmm_di" bpmnElement="Flow_0ksfbmm">
-        <di:waypoint x="690" y="117" />
-        <di:waypoint x="750" y="117" />
+      <bpmndi:BPMNEdge id="Flow_1hydhzz_di" bpmnElement="Flow_6unliked">
+        <di:waypoint x="950" y="235" />
+        <di:waypoint x="950" y="360" />
+        <di:waypoint x="620" y="360" />
+        <di:waypoint x="620" y="250" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_10zcpym_di" bpmnElement="Flow_10zcpym">
-        <di:waypoint x="850" y="117" />
-        <di:waypoint x="912" y="117" />
+      <bpmndi:BPMNEdge id="Flow_0spvcnh_di" bpmnElement="Flow_9disapproved">
+        <di:waypoint x="1400" y="185" />
+        <di:waypoint x="1400" y="100" />
+        <di:waypoint x="620" y="100" />
+        <di:waypoint x="620" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0loh8dk_di" bpmnElement="Flow_4">
+        <di:waypoint x="690" y="210" />
+        <di:waypoint x="760" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jy2kwj_di" bpmnElement="Flow_5">
+        <di:waypoint x="860" y="210" />
+        <di:waypoint x="925" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mmi8xn_di" bpmnElement="Flow_7">
+        <di:waypoint x="1160" y="210" />
+        <di:waypoint x="1230" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mzf07z_di" bpmnElement="Flow_8">
+        <di:waypoint x="1330" y="210" />
+        <di:waypoint x="1375" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0m2cidr_di" bpmnElement="Flow_9approved">
+        <di:waypoint x="1425" y="210" />
+        <di:waypoint x="1470" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04toto4_di" bpmnElement="Flow_6liked">
+        <di:waypoint x="975" y="210" />
+        <di:waypoint x="1040" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0nr2y17_di" bpmnElement="Flow_14">
+        <di:waypoint x="2120" y="210" />
+        <di:waypoint x="2162" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x79kr7_di" bpmnElement="Flow_13">
+        <di:waypoint x="1980" y="210" />
+        <di:waypoint x="2020" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y9ym96_di" bpmnElement="Flow_10">
+        <di:waypoint x="1570" y="210" />
+        <di:waypoint x="1625" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1e5au16_di" bpmnElement="Flow_11paymentaccepted">
+        <di:waypoint x="1675" y="210" />
+        <di:waypoint x="1720" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18adozi_di" bpmnElement="Flow_12">
+        <di:waypoint x="1820" y="210" />
+        <di:waypoint x="1880" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k1ajh8_di" bpmnElement="Flow_11paymentrejected">
+        <di:waypoint x="1650" y="185" />
+        <di:waypoint x="1650" y="100" />
+        <di:waypoint x="1520" y="100" />
+        <di:waypoint x="1520" y="170" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
