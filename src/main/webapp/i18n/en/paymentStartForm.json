@@ -1,0 +1,25 @@
+{
+  "airBnBFakeApp": {
+    "paymentStartForm": {
+      "home": {
+        "title": "Payment Start Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Start Form",
+        "createOrEditLabel": "Create or edit a Payment Start Form",
+        "notFound": "No Payment Start Forms found"
+      },
+      "created": "A new Payment Start Form is created with identifier {{ param }}",
+      "updated": "A Payment Start Form is updated with identifier {{ param }}",
+      "deleted": "A Payment Start Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Start Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Start Form"
+      },
+      "id": "ID",
+      "userName": "User Name",
+      "userEmail": "User Email"
+    }
+  }
+}

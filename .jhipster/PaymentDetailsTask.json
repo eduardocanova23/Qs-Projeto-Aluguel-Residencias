@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "CVV",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "FakeAirBnBProcess",
+  "processEntityName": "PaymentProcess",
+  "taskBpmnId": "PaymentDetails",
+  "domainEntityName": "Payment",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "PaymentDetailsTask",
+  "changelogDate": "20230613000003",
+  "skipFakeData": true
+}

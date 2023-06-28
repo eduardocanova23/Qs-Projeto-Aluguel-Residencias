@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userEmail",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "FakeAirBnBProcess",
+  "processEntityName": "PaymentProcess",
+  "domainEntityName": "Payment",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "PaymentStartForm",
+  "changelogDate": "20230613000003",
+  "skipFakeData": true
+}

@@ -1,0 +1,21 @@
+{
+  "airBnBFakeApp": {
+    "payment": {
+      "home": {
+        "title": "Payments",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Payments found"
+      },
+      "detail": {
+        "title": "Payment"
+      },
+      "id": "ID",
+      "cardNumber": "Card Number",
+      "CVV": "CVV",
+      "expirationDate": "Expiration Date",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "phoneNumber": "Phone Number"
+    }
+  }
+}

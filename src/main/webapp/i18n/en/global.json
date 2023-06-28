@@ -15,6 +15,10 @@
         "rentalPlan": "Rental Plan",
         "rentalPlanProcess": "Rental Plan Process",
         "rentalPlanStartForm": "Rental Plan Start Form",
+        "payment": "Payment",
+        "paymentProcess": "Payment Process",
+        "paymentDetailsTask": "Payment Details Task",
+        "paymentStartForm": "Payment Start Form",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

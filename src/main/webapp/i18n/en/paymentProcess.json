@@ -1,0 +1,29 @@
+{
+  "airBnBFakeApp": {
+    "paymentProcess": {
+      "home": {
+        "title": "Payment Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Process",
+        "createOrEditLabel": "Create or edit a Payment Process",
+        "notFound": "No Payment Processes found"
+      },
+      "created": "A new Payment Process is created with identifier {{ param }}",
+      "updated": "A Payment Process is updated with identifier {{ param }}",
+      "deleted": "A Payment Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Process {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Process"
+      },
+      "id": "ID",
+      "cardNumber": "Card Number",
+      "CVV": "CVV",
+      "expirationDate": "Expiration Date",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "phoneNumber": "Phone Number"
+    }
+  }
+}
