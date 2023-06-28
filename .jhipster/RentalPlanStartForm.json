@@ -1,0 +1,45 @@
+{
+  "fields": [
+    {
+      "fieldName": "targetCity",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "targetNeighboorhood",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userEmail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userPhoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "entityType": "start-form",
+  "processBpmnId": "RentalPlanProcess",
+  "processEntityName": "RentalPlanProcess",
+  "domainEntityName": "RentalPlan",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "RentalPlanStartForm",
+  "changelogDate": "20230613000002",
+  "skipFakeData": true
+}
