@@ -255,3 +255,13 @@ Accept all the options offered. The next step is to execute the project in anoth
 ```
 ./mvnw
 ```
+
+The project should appear in localhost:8080
+ The screen should be similar to this:
+
+ <div align="center">
+<a>
+    <img src="InitialPage.PNG" alt="main page" width="800" height="340">
+  </a>
+
+</div>
