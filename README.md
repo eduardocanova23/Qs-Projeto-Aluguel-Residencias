@@ -228,7 +228,7 @@ docker pull agilekip/generator-jhipster-agilekip:v0.0.12
 In the same terminal, create the jhipster container:
 
 ```
-docker run --name generator-jhipster-pais -v $PWD:/home/jhipster/app -d -t agilekip/generator-jhipster-pais:v0.0.6
+docker run --name generator-jhipster-pais -v $PWD:/home/jhipster/app -d -t agilekip/generator-jhipster-agilekip:v0.0.12
 ```
 
 
@@ -236,16 +236,12 @@ docker run --name generator-jhipster-pais -v $PWD:/home/jhipster/app -d -t agile
 Now open the container's bash: 
 
 ```
-docker container exec -it generator-jhipster-pais
+docker container exec -it generator-jhipster-pais bash
 ```
 
-Navigate to the project folder:
+Navigate to the project root folder
 
-```
-cd FakeBNB
-```
-
-And finally run:
+and finally run:
 ```
 jhipster entity RentalPlan
 ```
