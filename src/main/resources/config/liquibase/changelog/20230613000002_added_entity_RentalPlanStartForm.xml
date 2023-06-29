@@ -14,10 +14,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="target_city" type="varchar(255)">
+            <column name="city" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="target_neighboorhood" type="varchar(255)">
+            <column name="neighborhood" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="start_date" type="date">

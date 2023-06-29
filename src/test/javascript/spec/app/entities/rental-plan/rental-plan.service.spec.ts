@@ -33,7 +33,19 @@ describe('Service Tests', () => {
     beforeEach(() => {
       service = new RentalPlanService();
       currentDate = new Date();
-      elemDefault = new RentalPlan(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', currentDate, currentDate, 'AAAAAAA');
+      elemDefault = new RentalPlan(
+        0,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        currentDate,
+        currentDate,
+        'AAAAAAA',
+        'AAAAAAA',
+        'AAAAAAA',
+        currentDate
+      );
     });
 
     describe('Service methods', () => {
@@ -42,6 +54,7 @@ describe('Service Tests', () => {
           {
             startDate: dayjs(currentDate).format(DATE_FORMAT),
             endDate: dayjs(currentDate).format(DATE_FORMAT),
+            expirationDate: dayjs(currentDate).format(DATE_FORMAT),
           },
           elemDefault
         );
@@ -65,12 +78,16 @@ describe('Service Tests', () => {
       it('should return a list of RentalPlan', async () => {
         const returnedFromService = Object.assign(
           {
-            targetAddress: 'BBBBBB',
+            city: 'BBBBBB',
+            neighborhood: 'BBBBBB',
             userName: 'BBBBBB',
             userEmail: 'BBBBBB',
             startDate: dayjs(currentDate).format(DATE_FORMAT),
             endDate: dayjs(currentDate).format(DATE_FORMAT),
             rentalConfirmationNumber: 'BBBBBB',
+            cardNumber: 'BBBBBB',
+            cardVerificationValue: 'BBBBBB',
+            expirationDate: dayjs(currentDate).format(DATE_FORMAT),
           },
           elemDefault
         );
@@ -78,6 +95,7 @@ describe('Service Tests', () => {
           {
             startDate: currentDate,
             endDate: currentDate,
+            expirationDate: currentDate,
           },
           returnedFromService
         );

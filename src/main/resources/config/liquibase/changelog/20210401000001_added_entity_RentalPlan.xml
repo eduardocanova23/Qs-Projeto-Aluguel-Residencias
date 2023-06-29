@@ -14,7 +14,10 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="target_address" type="varchar(255)">
+            <column name="city" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="neighborhood" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="user_name" type="varchar(255)">
@@ -30,6 +33,18 @@
                 <constraints nullable="true" />
             </column>
             <column name="rental_confirmation_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="card_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="card_verification_value" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="expiration_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="living_quarters_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

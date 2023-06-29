@@ -1,7 +1,11 @@
 {
   "fields": [
     {
-      "fieldName": "targetAddress",
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "neighborhood",
       "fieldType": "String"
     },
     {
@@ -23,9 +27,28 @@
     {
       "fieldName": "rentalConfirmationNumber",
       "fieldType": "String"
+    },
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardVerificationValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "LocalDate"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "livingQuarters",
+      "otherEntityName": "livingQuarters",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "name"
+    }
+  ],
   "entityType": "process-binding",
   "processBpmnId": "RentalPlanProcess",
   "domainEntityName": "RentalPlan",

@@ -11,7 +11,9 @@ public class RentalPlanDTO implements Serializable {
 
     private Long id;
 
-    private String targetAddress;
+    private String city;
+
+    private String neighborhood;
 
     private String userName;
 
@@ -23,6 +25,14 @@ public class RentalPlanDTO implements Serializable {
 
     private String rentalConfirmationNumber;
 
+    private String cardNumber;
+
+    private String cardVerificationValue;
+
+    private LocalDate expirationDate;
+
+    private LivingQuartersDTO livingQuarters;
+
     public Long getId() {
         return id;
     }
@@ -31,12 +41,20 @@ public class RentalPlanDTO implements Serializable {
         this.id = id;
     }
 
-    public String getTargetAddress() {
-        return targetAddress;
+    public String getCity() {
+        return city;
     }
 
-    public void setTargetAddress(String targetAddress) {
-        this.targetAddress = targetAddress;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
     public String getUserName() {
@@ -79,6 +97,38 @@ public class RentalPlanDTO implements Serializable {
         this.rentalConfirmationNumber = rentalConfirmationNumber;
     }
 
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardVerificationValue() {
+        return cardVerificationValue;
+    }
+
+    public void setCardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public LivingQuartersDTO getLivingQuarters() {
+        return livingQuarters;
+    }
+
+    public void setLivingQuarters(LivingQuartersDTO livingQuarters) {
+        this.livingQuarters = livingQuarters;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -105,12 +155,17 @@ public class RentalPlanDTO implements Serializable {
     public String toString() {
         return "RentalPlanDTO{" +
             "id=" + getId() +
-            ", targetAddress='" + getTargetAddress() + "'" +
+            ", city='" + getCity() + "'" +
+            ", neighborhood='" + getNeighborhood() + "'" +
             ", userName='" + getUserName() + "'" +
             ", userEmail='" + getUserEmail() + "'" +
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
             ", rentalConfirmationNumber='" + getRentalConfirmationNumber() + "'" +
+            ", cardNumber='" + getCardNumber() + "'" +
+            ", cardVerificationValue='" + getCardVerificationValue() + "'" +
+            ", expirationDate='" + getExpirationDate() + "'" +
+            ", livingQuarters=" + getLivingQuarters() +
             "}";
     }
 }

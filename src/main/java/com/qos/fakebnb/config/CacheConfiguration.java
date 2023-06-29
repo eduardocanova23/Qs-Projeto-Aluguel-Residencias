@@ -51,6 +51,7 @@ public class CacheConfiguration {
             createCache(cm, com.qos.fakebnb.domain.RentalPlan.class.getName());
             createCache(cm, com.qos.fakebnb.domain.RentalPlanProcess.class.getName());
             createCache(cm, com.qos.fakebnb.domain.LivingQuarters.class.getName());
+            createCache(cm, com.qos.fakebnb.domain.Payment.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -16,15 +16,29 @@
               </h5>
               <div class="card-body py-0">
                 <div class="form-group">
-                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.targetAddress')">targetAddress</label>
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.city')">city</label>
                   <input
                     readonly
                     type="text"
                     class="form-control"
-                    name="targetAddress"
-                    id="rental-plan-targetAddress"
-                    data-cy="targetAddress"
-                    v-model="rentalPlanProcess.rentalPlan.targetAddress"
+                    name="city"
+                    id="rental-plan-city"
+                    data-cy="city"
+                    v-model="rentalPlanProcess.rentalPlan.city"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.neighborhood')">neighborhood</label>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="neighborhood"
+                    id="rental-plan-neighborhood"
+                    data-cy="neighborhood"
+                    v-model="rentalPlanProcess.rentalPlan.neighborhood"
                   />
                 </div>
               </div>
@@ -97,6 +111,80 @@
                     id="rental-plan-rentalConfirmationNumber"
                     data-cy="rentalConfirmationNumber"
                     v-model="rentalPlanProcess.rentalPlan.rentalConfirmationNumber"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.cardNumber')">cardNumber</label>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="cardNumber"
+                    id="rental-plan-cardNumber"
+                    data-cy="cardNumber"
+                    v-model="rentalPlanProcess.rentalPlan.cardNumber"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.cardVerificationValue')"
+                    >cardVerificationValue</label
+                  >
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="cardVerificationValue"
+                    id="rental-plan-cardVerificationValue"
+                    data-cy="cardVerificationValue"
+                    v-model="rentalPlanProcess.rentalPlan.cardVerificationValue"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.expirationDate')">expirationDate</label>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="expirationDate"
+                    id="rental-plan-expirationDate"
+                    data-cy="expirationDate"
+                    v-model="rentalPlanProcess.rentalPlan.expirationDate"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label
+                    class="form-control-label"
+                    v-text="$t('airBnBFakeApp.rentalPlanProcess.livingQuarters')"
+                    for="rental-plan-process-livingQuarters"
+                    >Living Quarters</label
+                  >
+                  <input
+                    v-if="rentalPlanProcess.rentalPlan.livingQuarters"
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="livingQuarters"
+                    id="rental-plan-livingQuarters"
+                    data-cy="livingQuarters"
+                    :value="rentalPlanProcess.rentalPlan.livingQuarters.name"
+                  />
+                  <input
+                    v-else
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="livingQuarters"
+                    id="rental-plan-livingQuarters"
+                    data-cy="livingQuarters"
+                    value=""
                   />
                 </div>
               </div>

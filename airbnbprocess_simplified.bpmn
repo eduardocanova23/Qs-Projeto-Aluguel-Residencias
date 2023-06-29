@@ -102,6 +102,10 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
+      <bpmndi:BPMNShape id="TextAnnotation_0uc3p0x_di" bpmnElement="TextAnnotation_0uc3p0x">
+        <dc:Bounds x="790" y="110" width="100" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_07co374" bpmnElement="Event_1ej9y9e">
         <dc:Bounds x="152" y="242" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -160,14 +164,14 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
         <dc:Bounds x="540" y="360" width="99.99305040770942" height="29.99907338769459" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0uc3p0x_di" bpmnElement="TextAnnotation_0uc3p0x">
-        <dc:Bounds x="790" y="110" width="99.99305040770942" height="29.99907338769459" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="TextAnnotation_1lrf8vr_di" bpmnElement="TextAnnotation_1lrf8vr">
         <dc:Bounds x="380" y="350" width="99.99305040770942" height="40.7709414381023" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1la5cgg_di" bpmnElement="Association_1la5cgg">
+        <di:waypoint x="840" y="220" />
+        <di:waypoint x="840" y="140" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1vtgycn_di" bpmnElement="Flow_1vtgycn">
         <di:waypoint x="188" y="260" />
         <di:waypoint x="230" y="260" />
@@ -245,10 +249,6 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
       <bpmndi:BPMNEdge id="Association_1lnpnsl_di" bpmnElement="Association_1lnpnsl">
         <di:waypoint x="590" y="300" />
         <di:waypoint x="590" y="360" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1la5cgg_di" bpmnElement="Association_1la5cgg">
-        <di:waypoint x="840" y="220" />
-        <di:waypoint x="840" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_03z8rru_di" bpmnElement="Association_03z8rru">
         <di:waypoint x="430" y="300" />

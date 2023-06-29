@@ -21,8 +21,11 @@ public class RentalPlan implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "target_address")
-    private String targetAddress;
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "neighborhood")
+    private String neighborhood;
 
     @Column(name = "user_name")
     private String userName;
@@ -39,6 +42,18 @@ public class RentalPlan implements Serializable {
     @Column(name = "rental_confirmation_number")
     private String rentalConfirmationNumber;
 
+    @Column(name = "card_number")
+    private String cardNumber;
+
+    @Column(name = "card_verification_value")
+    private String cardVerificationValue;
+
+    @Column(name = "expiration_date")
+    private LocalDate expirationDate;
+
+    @ManyToOne
+    private LivingQuarters livingQuarters;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -53,17 +68,30 @@ public class RentalPlan implements Serializable {
         return this;
     }
 
-    public String getTargetAddress() {
-        return this.targetAddress;
+    public String getCity() {
+        return this.city;
     }
 
-    public RentalPlan targetAddress(String targetAddress) {
-        this.targetAddress = targetAddress;
+    public RentalPlan city(String city) {
+        this.city = city;
         return this;
     }
 
-    public void setTargetAddress(String targetAddress) {
-        this.targetAddress = targetAddress;
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getNeighborhood() {
+        return this.neighborhood;
+    }
+
+    public RentalPlan neighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
+        return this;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
     public String getUserName() {
@@ -131,6 +159,58 @@ public class RentalPlan implements Serializable {
         this.rentalConfirmationNumber = rentalConfirmationNumber;
     }
 
+    public String getCardNumber() {
+        return this.cardNumber;
+    }
+
+    public RentalPlan cardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+        return this;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getCardVerificationValue() {
+        return this.cardVerificationValue;
+    }
+
+    public RentalPlan cardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
+        return this;
+    }
+
+    public void setCardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
+    }
+
+    public LocalDate getExpirationDate() {
+        return this.expirationDate;
+    }
+
+    public RentalPlan expirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+        return this;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    public LivingQuarters getLivingQuarters() {
+        return this.livingQuarters;
+    }
+
+    public RentalPlan livingQuarters(LivingQuarters livingQuarters) {
+        this.setLivingQuarters(livingQuarters);
+        return this;
+    }
+
+    public void setLivingQuarters(LivingQuarters livingQuarters) {
+        this.livingQuarters = livingQuarters;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -155,12 +235,16 @@ public class RentalPlan implements Serializable {
     public String toString() {
         return "RentalPlan{" +
             "id=" + getId() +
-            ", targetAddress='" + getTargetAddress() + "'" +
+            ", city='" + getCity() + "'" +
+            ", neighborhood='" + getNeighborhood() + "'" +
             ", userName='" + getUserName() + "'" +
             ", userEmail='" + getUserEmail() + "'" +
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
             ", rentalConfirmationNumber='" + getRentalConfirmationNumber() + "'" +
+            ", cardNumber='" + getCardNumber() + "'" +
+            ", cardVerificationValue='" + getCardVerificationValue() + "'" +
+            ", expirationDate='" + getExpirationDate() + "'" +
             "}";
     }
 }
