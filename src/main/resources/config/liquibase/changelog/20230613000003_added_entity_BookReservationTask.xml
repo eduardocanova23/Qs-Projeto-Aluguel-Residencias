@@ -7,10 +7,10 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity RentalPlan.
+        Added the entity BookReservationTask.
     -->
-    <changeSet id="20210401000001-1" author="jhipster">
-        <createTable tableName="rental_plan">
+    <changeSet id="20230613000003-1" author="jhipster">
+        <createTable tableName="book_reservation_task">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -20,34 +20,13 @@
             <column name="neighborhood" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="user_name" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="user_email" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="start_date" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="end_date" type="date">
                 <constraints nullable="true" />
             </column>
-            <column name="rental_confirmation_number" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="card_number" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="card_verification_value" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="expiration_date" type="date">
-                <constraints nullable="true" />
-            </column>
             <column name="confirmation" type="boolean">
-                <constraints nullable="true" />
-            </column>
-            <column name="living_quarters_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

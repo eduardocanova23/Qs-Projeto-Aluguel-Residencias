@@ -28,6 +28,7 @@
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.cardNumber')">Card Number</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.cardVerificationValue')">Card Verification Value</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.expirationDate')">Expiration Date</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.confirmation')">Confirmation</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.livingQuarters')">Living Quarters</span></th>
             <th scope="row"></th>
           </tr>
@@ -47,6 +48,7 @@
             <td>{{ rentalPlan.cardNumber }}</td>
             <td>{{ rentalPlan.cardVerificationValue }}</td>
             <td>{{ rentalPlan.expirationDate }}</td>
+            <td>{{ rentalPlan.confirmation }}</td>
             <td>
               <div v-if="rentalPlan.livingQuarters">
                 <router-link :to="{ name: 'LivingQuartersView', params: { livingQuartersId: rentalPlan.livingQuarters.id } }">{{

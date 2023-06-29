@@ -160,6 +160,20 @@
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanProcess.confirmation')">confirmation</label>
+                  <input
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="confirmation"
+                    id="rental-plan-confirmation"
+                    data-cy="confirmation"
+                    v-model="rentalPlanProcess.rentalPlan.confirmation"
+                  />
+                </div>
+              </div>
+              <div class="card-body py-0">
+                <div class="form-group">
                   <label
                     class="form-control-label"
                     v-text="$t('airBnBFakeApp.rentalPlanProcess.livingQuarters')"

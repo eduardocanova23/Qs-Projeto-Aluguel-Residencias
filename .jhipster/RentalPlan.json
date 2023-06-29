@@ -39,6 +39,10 @@
     {
       "fieldName": "expirationDate",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "confirmation",
+      "fieldType": "Boolean"
     }
   ],
   "relationships": [

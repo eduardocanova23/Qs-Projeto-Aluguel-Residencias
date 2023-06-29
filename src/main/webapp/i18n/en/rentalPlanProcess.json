@@ -28,6 +28,7 @@
       "cardNumber": "Card Number",
       "cardVerificationValue": "Card Verification Value",
       "expirationDate": "Expiration Date",
+      "confirmation": "Confirmation",
       "livingQuarters": "Living Quarters"
     }
   }

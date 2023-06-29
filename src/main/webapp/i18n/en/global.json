@@ -19,6 +19,7 @@
         "taskBrowseResidences": "Task Browse Residences",
         "payment": "Payment",
         "paymentDetailsTask": "Payment Details Task",
+        "bookReservationTask": "Book Reservation Task",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

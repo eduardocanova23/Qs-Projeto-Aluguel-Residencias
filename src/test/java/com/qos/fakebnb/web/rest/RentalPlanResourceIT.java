@@ -63,6 +63,9 @@ class RentalPlanResourceIT {
     private static final LocalDate DEFAULT_EXPIRATION_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_EXPIRATION_DATE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final Boolean DEFAULT_CONFIRMATION = false;
+    private static final Boolean UPDATED_CONFIRMATION = true;
+
     private static final String ENTITY_API_URL = "/api/rental-plans";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -100,7 +103,8 @@ class RentalPlanResourceIT {
             .rentalConfirmationNumber(DEFAULT_RENTAL_CONFIRMATION_NUMBER)
             .cardNumber(DEFAULT_CARD_NUMBER)
             .cardVerificationValue(DEFAULT_CARD_VERIFICATION_VALUE)
-            .expirationDate(DEFAULT_EXPIRATION_DATE);
+            .expirationDate(DEFAULT_EXPIRATION_DATE)
+            .confirmation(DEFAULT_CONFIRMATION);
         return rentalPlan;
     }
 
@@ -121,7 +125,8 @@ class RentalPlanResourceIT {
             .rentalConfirmationNumber(UPDATED_RENTAL_CONFIRMATION_NUMBER)
             .cardNumber(UPDATED_CARD_NUMBER)
             .cardVerificationValue(UPDATED_CARD_VERIFICATION_VALUE)
-            .expirationDate(UPDATED_EXPIRATION_DATE);
+            .expirationDate(UPDATED_EXPIRATION_DATE)
+            .confirmation(UPDATED_CONFIRMATION);
         return rentalPlan;
     }
 
@@ -151,7 +156,8 @@ class RentalPlanResourceIT {
             .andExpect(jsonPath("$.[*].rentalConfirmationNumber").value(hasItem(DEFAULT_RENTAL_CONFIRMATION_NUMBER)))
             .andExpect(jsonPath("$.[*].cardNumber").value(hasItem(DEFAULT_CARD_NUMBER)))
             .andExpect(jsonPath("$.[*].cardVerificationValue").value(hasItem(DEFAULT_CARD_VERIFICATION_VALUE)))
-            .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE.toString())));
+            .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE.toString())))
+            .andExpect(jsonPath("$.[*].confirmation").value(hasItem(DEFAULT_CONFIRMATION.booleanValue())));
     }
 
     @Test
@@ -175,7 +181,8 @@ class RentalPlanResourceIT {
             .andExpect(jsonPath("$.rentalConfirmationNumber").value(DEFAULT_RENTAL_CONFIRMATION_NUMBER))
             .andExpect(jsonPath("$.cardNumber").value(DEFAULT_CARD_NUMBER))
             .andExpect(jsonPath("$.cardVerificationValue").value(DEFAULT_CARD_VERIFICATION_VALUE))
-            .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE.toString()));
+            .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE.toString()))
+            .andExpect(jsonPath("$.confirmation").value(DEFAULT_CONFIRMATION.booleanValue()));
     }
 
     @Test

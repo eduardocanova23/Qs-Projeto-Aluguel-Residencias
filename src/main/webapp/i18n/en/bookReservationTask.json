@@ -1,0 +1,28 @@
+{
+  "airBnBFakeApp": {
+    "bookReservationTask": {
+      "home": {
+        "title": "Book Reservation Tasks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Book Reservation Task",
+        "createOrEditLabel": "Create or edit a Book Reservation Task",
+        "notFound": "No Book Reservation Tasks found"
+      },
+      "created": "A new Book Reservation Task is created with identifier {{ param }}",
+      "updated": "A Book Reservation Task is updated with identifier {{ param }}",
+      "deleted": "A Book Reservation Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Book Reservation Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Book Reservation Task"
+      },
+      "id": "ID",
+      "city": "City",
+      "neighborhood": "Neighborhood",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "confirmation": "Confirmation"
+    }
+  }
+}
