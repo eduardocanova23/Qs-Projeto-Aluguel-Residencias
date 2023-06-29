@@ -24,6 +24,7 @@
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.startDate')">Start Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.endDate')">End Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.rentalConfirmationNumber')">Rental Confirmation Number</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.livingQuarters')">Living Quarters</span></th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -38,6 +39,13 @@
             <td>{{ rentalPlan.startDate }}</td>
             <td>{{ rentalPlan.endDate }}</td>
             <td>{{ rentalPlan.rentalConfirmationNumber }}</td>
+            <td>
+              <div v-if="rentalPlan.livingQuarters">
+                <router-link :to="{ name: 'LivingQuartersView', params: { livingQuartersId: rentalPlan.livingQuarters.id } }">{{
+                  rentalPlan.livingQuarters.name
+                }}</router-link>
+              </div>
+            </td>
             <td class="text-right">
               <div class="btn-group">
                 <router-link :to="{ name: 'RentalPlanView', params: { rentalPlanId: rentalPlan.id } }" custom v-slot="{ navigate }">

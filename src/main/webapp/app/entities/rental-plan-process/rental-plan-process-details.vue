@@ -100,6 +100,36 @@
                   />
                 </div>
               </div>
+              <div class="card-body py-0">
+                <div class="form-group">
+                  <label
+                    class="form-control-label"
+                    v-text="$t('airBnBFakeApp.rentalPlanProcess.livingQuarters')"
+                    for="rental-plan-process-livingQuarters"
+                    >Living Quarters</label
+                  >
+                  <input
+                    v-if="rentalPlanProcess.rentalPlan.livingQuarters"
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="livingQuarters"
+                    id="rental-plan-livingQuarters"
+                    data-cy="livingQuarters"
+                    :value="rentalPlanProcess.rentalPlan.livingQuarters.name"
+                  />
+                  <input
+                    v-else
+                    readonly
+                    type="text"
+                    class="form-control"
+                    name="livingQuarters"
+                    id="rental-plan-livingQuarters"
+                    data-cy="livingQuarters"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
           </template>
         </akip-show-process-instance>

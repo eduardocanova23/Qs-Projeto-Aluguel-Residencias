@@ -1,3 +1,5 @@
+import { ILivingQuarters } from '@/shared/model/living-quarters.model';
+
 export interface IRentalPlan {
   id?: number;
   targetAddress?: string | null;
@@ -6,6 +8,7 @@ export interface IRentalPlan {
   startDate?: Date | null;
   endDate?: Date | null;
   rentalConfirmationNumber?: string | null;
+  livingQuarters?: ILivingQuarters | null;
 }
 
 export class RentalPlan implements IRentalPlan {
@@ -16,6 +19,7 @@ export class RentalPlan implements IRentalPlan {
     public userEmail?: string | null,
     public startDate?: Date | null,
     public endDate?: Date | null,
-    public rentalConfirmationNumber?: string | null
+    public rentalConfirmationNumber?: string | null,
+    public livingQuarters?: ILivingQuarters | null
   ) {}
 }

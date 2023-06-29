@@ -25,7 +25,14 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "livingQuarters",
+      "otherEntityName": "livingQuarters",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "name"
+    }
+  ],
   "entityType": "process-binding",
   "processBpmnId": "RentalPlanProcess",
   "domainEntityName": "RentalPlan",

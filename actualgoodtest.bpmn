@@ -8,37 +8,37 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
 
 **Here, at AirBnBFake, we are commited to make the whole rental process as easy as possible so that all that pressure is lifted off your shoulders.**</bpmn:documentation>
     <bpmn:startEvent id="StartEvent_1">
-      <bpmn:outgoing>Flow_0o8n5w6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1vtgycn</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:userTask id="InsertTravelDetails" name="Insert Travel Details">
-      <bpmn:incoming>Flow_0o8n5w6</bpmn:incoming>
-      <bpmn:outgoing>Flow_1p89g5y</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0o8n5w6" sourceRef="StartEvent_1" targetRef="InsertTravelDetails" />
-    <bpmn:endEvent id="EndEvent">
-      <bpmn:incoming>Flow_1p89g5y</bpmn:incoming>
+    <bpmn:sequenceFlow id="Flow_1vtgycn" sourceRef="StartEvent_1" targetRef="BrowseResidences" />
+    <bpmn:endEvent id="Event_15p3nzr">
+      <bpmn:incoming>Flow_0i13vya</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1p89g5y" sourceRef="InsertTravelDetails" targetRef="EndEvent" />
+    <bpmn:userTask id="BrowseResidences" name="Browse through available residences">
+      <bpmn:incoming>Flow_1vtgycn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0i13vya</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0i13vya" sourceRef="BrowseResidences" targetRef="Event_15p3nzr" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="179" y="99" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_18m81on_di" bpmnElement="InsertTravelDetails">
-        <dc:Bounds x="270" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_023cath_di" bpmnElement="BrowseResidences">
+        <dc:Bounds x="310" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0smzmgp_di" bpmnElement="EndEvent">
-        <dc:Bounds x="432" y="99" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_0im8ppt_di" bpmnElement="Event_15p3nzr">
+        <dc:Bounds x="482" y="99" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_0o8n5w6">
-        <di:waypoint x="215" y="117" />
-        <di:waypoint x="270" y="117" />
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0i13vya_di" bpmnElement="Flow_0i13vya">
+        <di:waypoint x="410" y="117" />
+        <di:waypoint x="482" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1p89g5y_di" bpmnElement="Flow_1p89g5y">
-        <di:waypoint x="370" y="117" />
-        <di:waypoint x="432" y="117" />
+      <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_1vtgycn">
+        <di:waypoint x="188" y="117" />
+        <di:waypoint x="310" y="117" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -39,6 +39,9 @@ public class RentalPlan implements Serializable {
     @Column(name = "rental_confirmation_number")
     private String rentalConfirmationNumber;
 
+    @ManyToOne
+    private LivingQuarters livingQuarters;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -129,6 +132,19 @@ public class RentalPlan implements Serializable {
 
     public void setRentalConfirmationNumber(String rentalConfirmationNumber) {
         this.rentalConfirmationNumber = rentalConfirmationNumber;
+    }
+
+    public LivingQuarters getLivingQuarters() {
+        return this.livingQuarters;
+    }
+
+    public RentalPlan livingQuarters(LivingQuarters livingQuarters) {
+        this.setLivingQuarters(livingQuarters);
+        return this;
+    }
+
+    public void setLivingQuarters(LivingQuarters livingQuarters) {
+        this.livingQuarters = livingQuarters;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

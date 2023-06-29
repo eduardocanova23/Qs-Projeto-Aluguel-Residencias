@@ -1,0 +1,30 @@
+{
+  "airBnBFakeApp": {
+    "taskBrowseResidences": {
+      "home": {
+        "title": "Task Browse Residences",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Task Browse Residences",
+        "createOrEditLabel": "Create or edit a Task Browse Residences",
+        "notFound": "No Task Browse Residences found"
+      },
+      "created": "A new Task Browse Residences is created with identifier {{ param }}",
+      "updated": "A Task Browse Residences is updated with identifier {{ param }}",
+      "deleted": "A Task Browse Residences is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Task Browse Residences {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Browse Residences"
+      },
+      "id": "ID",
+      "targetAddress": "Target Address",
+      "userName": "User Name",
+      "userEmail": "User Email",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "rentalConfirmationNumber": "Rental Confirmation Number",
+      "livingQuarters": "Living Quarters"
+    }
+  }
+}

@@ -23,7 +23,8 @@
       "userEmail": "User Email",
       "startDate": "Start Date",
       "endDate": "End Date",
-      "rentalConfirmationNumber": "Rental Confirmation Number"
+      "rentalConfirmationNumber": "Rental Confirmation Number",
+      "livingQuarters": "Living Quarters"
     }
   }
 }

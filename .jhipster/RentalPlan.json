@@ -1,7 +1,11 @@
 {
   "fields": [
     {
-      "fieldName": "targetAddress",
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "neighborhood",
       "fieldType": "String"
     },
     {
@@ -25,7 +29,14 @@
       "fieldType": "String"
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipName": "livingQuarters",
+      "otherEntityName": "livingQuarters",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "name"
+    }
+  ],
   "entityType": "domain",
   "service": "serviceClass",
   "dto": "mapstruct",

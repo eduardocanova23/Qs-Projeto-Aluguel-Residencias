@@ -42,6 +42,16 @@
           <dd>
             <span>{{ rentalPlan.rentalConfirmationNumber }}</span>
           </dd>
+          <dt>
+            <span v-text="$t('airBnBFakeApp.rentalPlan.livingQuarters')">Living Quarters</span>
+          </dt>
+          <dd>
+            <div v-if="rentalPlan.livingQuarters">
+              <router-link :to="{ name: 'LivingQuartersView', params: { livingQuartersId: rentalPlan.livingQuarters.id } }">{{
+                rentalPlan.livingQuarters.name
+              }}</router-link>
+            </div>
+          </dd>
         </dl>
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>

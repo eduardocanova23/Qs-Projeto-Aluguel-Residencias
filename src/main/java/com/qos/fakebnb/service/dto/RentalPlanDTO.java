@@ -23,6 +23,8 @@ public class RentalPlanDTO implements Serializable {
 
     private String rentalConfirmationNumber;
 
+    private LivingQuartersDTO livingQuarters;
+
     public Long getId() {
         return id;
     }
@@ -79,6 +81,14 @@ public class RentalPlanDTO implements Serializable {
         this.rentalConfirmationNumber = rentalConfirmationNumber;
     }
 
+    public LivingQuartersDTO getLivingQuarters() {
+        return livingQuarters;
+    }
+
+    public void setLivingQuarters(LivingQuartersDTO livingQuarters) {
+        this.livingQuarters = livingQuarters;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -111,6 +121,7 @@ public class RentalPlanDTO implements Serializable {
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
             ", rentalConfirmationNumber='" + getRentalConfirmationNumber() + "'" +
+            ", livingQuarters=" + getLivingQuarters() +
             "}";
     }
 }

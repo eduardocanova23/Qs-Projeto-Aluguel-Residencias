@@ -7,10 +7,10 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <!--
-        Added the entity RentalPlan.
+        Added the entity TaskBrowseResidences.
     -->
-    <changeSet id="20210401000001-1" author="jhipster">
-        <createTable tableName="rental_plan">
+    <changeSet id="20220401000004-1" author="jhipster">
+        <createTable tableName="task_browse_residences">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

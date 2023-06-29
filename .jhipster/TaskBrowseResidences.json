@@ -1,0 +1,59 @@
+{
+    "fields": [
+        {
+            "fieldName": "city",
+            "fieldType": "String",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "neighborhood",
+            "fieldType": "String",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "userName",
+            "fieldType": "String",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "userEmail",
+            "fieldType": "String",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "LocalDate",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "LocalDate",
+            "fieldReadOnly": true
+        },
+        {
+            "fieldName": "rentalConfirmationNumber",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "livingQuarters",
+            "otherEntityName": "livingQuarters",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "entityType": "user-task-form",
+    "processBpmnId": "RentalPlanProcess",
+    "processEntityName": "RentalPlanProcess",
+    "taskBpmnId": "BrowseResidences",
+    "domainEntityName": "RentalPlan",
+    "service": "serviceClass",
+    "dto": "mapstruct",
+    "jpaMetamodelFiltering": false,
+    "readOnly": false,
+    "pagination": "no",
+    "skipFakeData": true,
+    "name": "TaskBrowseResidences",
+    "changelogDate": "20220401000004"
+}
