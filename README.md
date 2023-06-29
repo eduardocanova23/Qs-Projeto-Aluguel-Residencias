@@ -261,3 +261,17 @@ The project should appear in localhost:8080
   </a>
 
 </div>
+
+After login, you can add a new available residence for rent in "Entity" from the navigation bar:
+
+<div align="center">
+<a>
+    <img src="menu.PNG" alt="menu" width="700" height="210">
+  </a>
+
+For that , you'll need to select the "Living Quarters" option. Then, select "Create Living Quarters":
+
+<div align="center">
+<a>
+    <img src="newliving.PNG" alt="menu" width="400" height="80">
+  </a>
