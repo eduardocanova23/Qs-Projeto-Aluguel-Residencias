@@ -304,3 +304,11 @@ When initialized, a new form will appear asking for the desired specifications a
     <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/processstarted.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
   </div>
+
+You can then edit the payment details so the purchase can be efectuaded:
+
+  <div align="center">
+<a>
+    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/paymentdetails.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+  </a>
+  </div>
