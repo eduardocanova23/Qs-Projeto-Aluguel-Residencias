@@ -214,7 +214,7 @@ The modelled process is the following:
 
 <div align="center">
 <a>
-    <img src="DefinitiveProcess.PNG" alt="Logo" width="800" height="240">
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/PROCESSONOVO.png?raw=true" alt="Logo" >
   </a>
 
 </div>
