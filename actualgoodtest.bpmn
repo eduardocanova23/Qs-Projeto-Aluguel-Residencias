@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01sauym" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01sauym" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:process id="RentalPlanProcess" name="Rental Plan Process" isExecutable="true">
     <bpmn:documentation>**Interested in finding the best places to accomodate you during your travel?.**
 Sure, creating a Pinterest board full of gorgeous pictures is fun, but then you start trying to figure out the actual logistics and it hits you … oh god, this is SO MUCH WORK.
@@ -17,15 +17,16 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
     </bpmn:userTask>
     <bpmn:userTask id="PaymentDetails" name="Write Payment Details">
       <bpmn:incoming>Flow_167n0j2</bpmn:incoming>
+      <bpmn:incoming>Flow_0ri4xfy</bpmn:incoming>
       <bpmn:outgoing>Flow_1opnolp</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_167n0j2" sourceRef="BrowseResidences" targetRef="PaymentDetails" />
     <bpmn:parallelGateway id="Gateway_1gl6nhm">
-      <bpmn:incoming>Flow_1opnolp</bpmn:incoming>
+      <bpmn:incoming>Flow_0guabqq</bpmn:incoming>
       <bpmn:outgoing>Flow_04e0asf</bpmn:outgoing>
       <bpmn:outgoing>Flow_19165vh</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:sequenceFlow id="Flow_1opnolp" sourceRef="PaymentDetails" targetRef="Gateway_1gl6nhm" />
+    <bpmn:sequenceFlow id="Flow_1opnolp" sourceRef="PaymentDetails" targetRef="ProcessPayment" />
     <bpmn:sendTask id="ProprietaryContact" name="Email Proprietary OK" camunda:delegateExpression="${emailProprietaryDelegate}">
       <bpmn:incoming>Flow_04e0asf</bpmn:incoming>
       <bpmn:outgoing>Flow_13f2rv3</bpmn:outgoing>
@@ -47,9 +48,42 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
       <bpmn:incoming>Flow_05bpm6u</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_05bpm6u" sourceRef="Gateway_0lykb0q" targetRef="Event_0djppf4" />
+    <bpmn:sequenceFlow id="Flow_10h16mc" sourceRef="ProcessPayment" targetRef="Gateway_1yo45qv" />
+    <bpmn:serviceTask id="ProcessPayment" name="Process Payment" camunda:delegateExpression="${processPaymentDelegate}">
+      <bpmn:incoming>Flow_1opnolp</bpmn:incoming>
+      <bpmn:outgoing>Flow_10h16mc</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_1yo45qv">
+      <bpmn:incoming>Flow_10h16mc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0guabqq</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ri4xfy</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0guabqq" sourceRef="Gateway_1yo45qv" targetRef="Gateway_1gl6nhm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${paymentAccepted}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0ri4xfy" sourceRef="Gateway_1yo45qv" targetRef="PaymentDetails">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!paymentAccepted}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
+      <bpmndi:BPMNShape id="Gateway_1gl6nhm_di" bpmnElement="Gateway_1gl6nhm">
+        <dc:Bounds x="1045" y="232" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yscvnw_di" bpmnElement="ProprietaryContact">
+        <dc:Bounds x="1180" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xf19va_di" bpmnElement="Activity_1j3z4n9">
+        <dc:Bounds x="1180" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0r1ko0c" bpmnElement="Gateway_0lykb0q">
+        <dc:Bounds x="1375" y="225" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0djppf4_di" bpmnElement="Event_0djppf4">
+        <dc:Bounds x="1522" y="232" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="152" y="239" width="36" height="36" />
       </bpmndi:BPMNShape>
@@ -61,23 +95,40 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
         <dc:Bounds x="540" y="217" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1gl6nhm_di" bpmnElement="Gateway_1gl6nhm">
-        <dc:Bounds x="775" y="232" width="50" height="50" />
+      <bpmndi:BPMNShape id="Activity_0fcqp0x_di" bpmnElement="ProcessPayment">
+        <dc:Bounds x="780" y="217" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1yscvnw_di" bpmnElement="ProprietaryContact">
-        <dc:Bounds x="910" y="80" width="100" height="80" />
-        <bpmndi:BPMNLabel />
+      <bpmndi:BPMNShape id="Gateway_1yo45qv_di" bpmnElement="Gateway_1yo45qv" isMarkerVisible="true">
+        <dc:Bounds x="945" y="232" width="50" height="50" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1xf19va_di" bpmnElement="Activity_1j3z4n9">
-        <dc:Bounds x="910" y="320" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0r1ko0c" bpmnElement="Gateway_0lykb0q">
-        <dc:Bounds x="1105" y="225" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0djppf4_di" bpmnElement="Event_0djppf4">
-        <dc:Bounds x="1252" y="232" width="36" height="36" />
-      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1opnolp_di" bpmnElement="Flow_1opnolp">
+        <di:waypoint x="640" y="257" />
+        <di:waypoint x="780" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04e0asf_di" bpmnElement="Flow_04e0asf">
+        <di:waypoint x="1070" y="232" />
+        <di:waypoint x="1070" y="120" />
+        <di:waypoint x="1180" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19165vh_di" bpmnElement="Flow_19165vh">
+        <di:waypoint x="1070" y="282" />
+        <di:waypoint x="1070" y="360" />
+        <di:waypoint x="1180" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13f2rv3_di" bpmnElement="Flow_13f2rv3">
+        <di:waypoint x="1280" y="120" />
+        <di:waypoint x="1400" y="120" />
+        <di:waypoint x="1400" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_107g16h_di" bpmnElement="Flow_107g16h">
+        <di:waypoint x="1280" y="360" />
+        <di:waypoint x="1400" y="360" />
+        <di:waypoint x="1400" y="275" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05bpm6u_di" bpmnElement="Flow_05bpm6u">
+        <di:waypoint x="1425" y="250" />
+        <di:waypoint x="1522" y="250" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_1vtgycn">
         <di:waypoint x="188" y="257" />
         <di:waypoint x="310" y="257" />
@@ -86,33 +137,19 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
         <di:waypoint x="410" y="257" />
         <di:waypoint x="540" y="257" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1opnolp_di" bpmnElement="Flow_1opnolp">
-        <di:waypoint x="640" y="257" />
-        <di:waypoint x="775" y="257" />
+      <bpmndi:BPMNEdge id="Flow_10h16mc_di" bpmnElement="Flow_10h16mc">
+        <di:waypoint x="880" y="257" />
+        <di:waypoint x="945" y="257" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_04e0asf_di" bpmnElement="Flow_04e0asf">
-        <di:waypoint x="800" y="232" />
-        <di:waypoint x="800" y="120" />
-        <di:waypoint x="910" y="120" />
+      <bpmndi:BPMNEdge id="Flow_0guabqq_di" bpmnElement="Flow_0guabqq">
+        <di:waypoint x="995" y="257" />
+        <di:waypoint x="1045" y="257" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_19165vh_di" bpmnElement="Flow_19165vh">
-        <di:waypoint x="800" y="282" />
-        <di:waypoint x="800" y="360" />
-        <di:waypoint x="910" y="360" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_13f2rv3_di" bpmnElement="Flow_13f2rv3">
-        <di:waypoint x="1010" y="120" />
-        <di:waypoint x="1130" y="120" />
-        <di:waypoint x="1130" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_107g16h_di" bpmnElement="Flow_107g16h">
-        <di:waypoint x="1010" y="360" />
-        <di:waypoint x="1130" y="360" />
-        <di:waypoint x="1130" y="275" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_05bpm6u_di" bpmnElement="Flow_05bpm6u">
-        <di:waypoint x="1155" y="250" />
-        <di:waypoint x="1252" y="250" />
+      <bpmndi:BPMNEdge id="Flow_0ri4xfy_di" bpmnElement="Flow_0ri4xfy">
+        <di:waypoint x="970" y="232" />
+        <di:waypoint x="970" y="170" />
+        <di:waypoint x="590" y="170" />
+        <di:waypoint x="590" y="217" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
