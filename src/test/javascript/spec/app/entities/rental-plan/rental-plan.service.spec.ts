@@ -44,7 +44,7 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
-        'AAAAAAA'
+        currentDate
       );
     });
 
@@ -54,6 +54,7 @@ describe('Service Tests', () => {
           {
             startDate: dayjs(currentDate).format(DATE_FORMAT),
             endDate: dayjs(currentDate).format(DATE_FORMAT),
+            expirationDate: dayjs(currentDate).format(DATE_FORMAT),
           },
           elemDefault
         );
@@ -86,7 +87,7 @@ describe('Service Tests', () => {
             rentalConfirmationNumber: 'BBBBBB',
             cardNumber: 'BBBBBB',
             cardVerificationValue: 'BBBBBB',
-            expirationDate: 'BBBBBB',
+            expirationDate: dayjs(currentDate).format(DATE_FORMAT),
           },
           elemDefault
         );
@@ -94,6 +95,7 @@ describe('Service Tests', () => {
           {
             startDate: currentDate,
             endDate: currentDate,
+            expirationDate: currentDate,
           },
           returnedFromService
         );

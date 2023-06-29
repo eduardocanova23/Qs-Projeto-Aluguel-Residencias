@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title>Rental Plan Summary</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <p>Dear <span>Proprietary,</span></p>
+    <p>Here is a summary of a reservation by <b th:text="${rentalPlan.userName}">userName</b></p>
+    <ul>
+      <li><b>Start</b>: <span th:text="${rentalPlan.startDate }"></span></li>
+      <li><b>End</b>: <span th:text="${rentalPlan.endDate }"></span></li>
+      <li><span th:text="${rentalPlan.rentalConfirmationNumber}"></span></li>
+    </ul>
+    <p>
+      Regards,
+      <br />
+      <em>FakeBnB</em>
+    </p>
+  </body>
+</html>

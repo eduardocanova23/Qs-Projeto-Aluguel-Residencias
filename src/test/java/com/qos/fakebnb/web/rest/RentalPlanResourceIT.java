@@ -60,8 +60,8 @@ class RentalPlanResourceIT {
     private static final String DEFAULT_CARD_VERIFICATION_VALUE = "AAAAAAAAAA";
     private static final String UPDATED_CARD_VERIFICATION_VALUE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_EXPIRATION_DATE = "AAAAAAAAAA";
-    private static final String UPDATED_EXPIRATION_DATE = "BBBBBBBBBB";
+    private static final LocalDate DEFAULT_EXPIRATION_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_EXPIRATION_DATE = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/rental-plans";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -151,7 +151,7 @@ class RentalPlanResourceIT {
             .andExpect(jsonPath("$.[*].rentalConfirmationNumber").value(hasItem(DEFAULT_RENTAL_CONFIRMATION_NUMBER)))
             .andExpect(jsonPath("$.[*].cardNumber").value(hasItem(DEFAULT_CARD_NUMBER)))
             .andExpect(jsonPath("$.[*].cardVerificationValue").value(hasItem(DEFAULT_CARD_VERIFICATION_VALUE)))
-            .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE)));
+            .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE.toString())));
     }
 
     @Test
@@ -175,7 +175,7 @@ class RentalPlanResourceIT {
             .andExpect(jsonPath("$.rentalConfirmationNumber").value(DEFAULT_RENTAL_CONFIRMATION_NUMBER))
             .andExpect(jsonPath("$.cardNumber").value(DEFAULT_CARD_NUMBER))
             .andExpect(jsonPath("$.cardVerificationValue").value(DEFAULT_CARD_VERIFICATION_VALUE))
-            .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE));
+            .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE.toString()));
     }
 
     @Test

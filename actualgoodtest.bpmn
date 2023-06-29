@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01sauym" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01sauym" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:process id="RentalPlanProcess" name="Rental Plan Process" isExecutable="true">
     <bpmn:documentation>**Interested in finding the best places to accomodate you during your travel?.**
 Sure, creating a Pinterest board full of gorgeous pictures is fun, but then you start trying to figure out the actual logistics and it hits you … oh god, this is SO MUCH WORK.
@@ -17,41 +17,102 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
     </bpmn:userTask>
     <bpmn:userTask id="PaymentDetails" name="Write Payment Details">
       <bpmn:incoming>Flow_167n0j2</bpmn:incoming>
-      <bpmn:outgoing>Flow_0wuv4ae</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1opnolp</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_167n0j2" sourceRef="BrowseResidences" targetRef="PaymentDetails" />
-    <bpmn:endEvent id="Event_1tzg8ys">
-      <bpmn:incoming>Flow_0wuv4ae</bpmn:incoming>
+    <bpmn:parallelGateway id="Gateway_1gl6nhm">
+      <bpmn:incoming>Flow_1opnolp</bpmn:incoming>
+      <bpmn:outgoing>Flow_04e0asf</bpmn:outgoing>
+      <bpmn:outgoing>Flow_19165vh</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_1opnolp" sourceRef="PaymentDetails" targetRef="Gateway_1gl6nhm" />
+    <bpmn:sendTask id="ProprietaryContact" name="Email Proprietary OK" camunda:delegateExpression="${emailProprietaryDelegate}">
+      <bpmn:incoming>Flow_04e0asf</bpmn:incoming>
+      <bpmn:outgoing>Flow_13f2rv3</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="Flow_04e0asf" sourceRef="Gateway_1gl6nhm" targetRef="ProprietaryContact" />
+    <bpmn:sendTask id="Activity_1j3z4n9" name="Email Renter OK" camunda:delegateExpression="${emailRenterDelegate}">
+      <bpmn:incoming>Flow_19165vh</bpmn:incoming>
+      <bpmn:outgoing>Flow_107g16h</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="Flow_19165vh" sourceRef="Gateway_1gl6nhm" targetRef="Activity_1j3z4n9" />
+    <bpmn:parallelGateway id="Gateway_0lykb0q">
+      <bpmn:incoming>Flow_13f2rv3</bpmn:incoming>
+      <bpmn:incoming>Flow_107g16h</bpmn:incoming>
+      <bpmn:outgoing>Flow_05bpm6u</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_13f2rv3" sourceRef="ProprietaryContact" targetRef="Gateway_0lykb0q" />
+    <bpmn:sequenceFlow id="Flow_107g16h" sourceRef="Activity_1j3z4n9" targetRef="Gateway_0lykb0q" />
+    <bpmn:endEvent id="Event_0djppf4">
+      <bpmn:incoming>Flow_05bpm6u</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0wuv4ae" sourceRef="PaymentDetails" targetRef="Event_1tzg8ys" />
+    <bpmn:sequenceFlow id="Flow_05bpm6u" sourceRef="Gateway_0lykb0q" targetRef="Event_0djppf4" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
-      <bpmndi:BPMNShape id="Activity_023cath_di" bpmnElement="BrowseResidences">
-        <dc:Bounds x="310" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="152" y="99" width="36" height="36" />
+        <dc:Bounds x="152" y="239" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_023cath_di" bpmnElement="BrowseResidences">
+        <dc:Bounds x="310" y="217" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1030q9b_di" bpmnElement="PaymentDetails">
-        <dc:Bounds x="540" y="77" width="100" height="80" />
+        <dc:Bounds x="540" y="217" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1tzg8ys_di" bpmnElement="Event_1tzg8ys">
-        <dc:Bounds x="772" y="99" width="36" height="36" />
+      <bpmndi:BPMNShape id="Gateway_1gl6nhm_di" bpmnElement="Gateway_1gl6nhm">
+        <dc:Bounds x="775" y="232" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1yscvnw_di" bpmnElement="ProprietaryContact">
+        <dc:Bounds x="910" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xf19va_di" bpmnElement="Activity_1j3z4n9">
+        <dc:Bounds x="910" y="320" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0r1ko0c" bpmnElement="Gateway_0lykb0q">
+        <dc:Bounds x="1105" y="225" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0djppf4_di" bpmnElement="Event_0djppf4">
+        <dc:Bounds x="1252" y="232" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_1vtgycn">
-        <di:waypoint x="188" y="117" />
-        <di:waypoint x="310" y="117" />
+        <di:waypoint x="188" y="257" />
+        <di:waypoint x="310" y="257" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_167n0j2_di" bpmnElement="Flow_167n0j2">
-        <di:waypoint x="410" y="117" />
-        <di:waypoint x="540" y="117" />
+        <di:waypoint x="410" y="257" />
+        <di:waypoint x="540" y="257" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0wuv4ae_di" bpmnElement="Flow_0wuv4ae">
-        <di:waypoint x="640" y="117" />
-        <di:waypoint x="772" y="117" />
+      <bpmndi:BPMNEdge id="Flow_1opnolp_di" bpmnElement="Flow_1opnolp">
+        <di:waypoint x="640" y="257" />
+        <di:waypoint x="775" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04e0asf_di" bpmnElement="Flow_04e0asf">
+        <di:waypoint x="800" y="232" />
+        <di:waypoint x="800" y="120" />
+        <di:waypoint x="910" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19165vh_di" bpmnElement="Flow_19165vh">
+        <di:waypoint x="800" y="282" />
+        <di:waypoint x="800" y="360" />
+        <di:waypoint x="910" y="360" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13f2rv3_di" bpmnElement="Flow_13f2rv3">
+        <di:waypoint x="1010" y="120" />
+        <di:waypoint x="1130" y="120" />
+        <di:waypoint x="1130" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_107g16h_di" bpmnElement="Flow_107g16h">
+        <di:waypoint x="1010" y="360" />
+        <di:waypoint x="1130" y="360" />
+        <di:waypoint x="1130" y="275" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05bpm6u_di" bpmnElement="Flow_05bpm6u">
+        <di:waypoint x="1155" y="250" />
+        <di:waypoint x="1252" y="250" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
