@@ -13,11 +13,12 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
     <bpmn:sequenceFlow id="Flow_1vtgycn" sourceRef="StartEvent_1" targetRef="BrowseResidences" />
     <bpmn:userTask id="BrowseResidences" name="Browse through available residences">
       <bpmn:incoming>Flow_1vtgycn</bpmn:incoming>
+      <bpmn:incoming>Flow_06yy28f</bpmn:incoming>
       <bpmn:outgoing>Flow_167n0j2</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="PaymentDetails" name="Write Payment Details">
       <bpmn:incoming>Flow_0ri4xfy</bpmn:incoming>
-      <bpmn:incoming>Flow_05mk486</bpmn:incoming>
+      <bpmn:incoming>Flow_0wdlpib</bpmn:incoming>
       <bpmn:outgoing>Flow_1opnolp</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:parallelGateway id="Gateway_1gl6nhm">
@@ -63,41 +64,52 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
     <bpmn:sequenceFlow id="Flow_0ri4xfy" sourceRef="Gateway_1yo45qv" targetRef="PaymentDetails">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!paymentAccepted}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_167n0j2" sourceRef="BrowseResidences" targetRef="Activity_1ljx3s5" />
-    <bpmn:sequenceFlow id="Flow_05mk486" sourceRef="Activity_1ljx3s5" targetRef="PaymentDetails" />
-    <bpmn:userTask id="Activity_1ljx3s5" name="Book Reservation">
+    <bpmn:sequenceFlow id="Flow_167n0j2" sourceRef="BrowseResidences" targetRef="BookReservation" />
+    <bpmn:sequenceFlow id="Flow_05mk486" sourceRef="BookReservation" targetRef="Gateway_1o57u50" />
+    <bpmn:userTask id="BookReservation" name="Book Reservation">
       <bpmn:incoming>Flow_167n0j2</bpmn:incoming>
       <bpmn:outgoing>Flow_05mk486</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_1o57u50">
+      <bpmn:incoming>Flow_05mk486</bpmn:incoming>
+      <bpmn:outgoing>Flow_0wdlpib</bpmn:outgoing>
+      <bpmn:outgoing>Flow_06yy28f</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0wdlpib" sourceRef="Gateway_1o57u50" targetRef="PaymentDetails">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${processInstance.rentalPlan.confirmation}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_06yy28f" sourceRef="Gateway_1o57u50" targetRef="BrowseResidences">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!processInstance.rentalPlan.confirmation}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="RentalPlanProcess">
       <bpmndi:BPMNShape id="Activity_1030q9b_di" bpmnElement="PaymentDetails">
-        <dc:Bounds x="650" y="217" width="100" height="80" />
+        <dc:Bounds x="770" y="217" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1gl6nhm_di" bpmnElement="Gateway_1gl6nhm">
-        <dc:Bounds x="1155" y="232" width="50" height="50" />
+        <dc:Bounds x="1275" y="232" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1yscvnw_di" bpmnElement="ProprietaryContact">
-        <dc:Bounds x="1290" y="80" width="100" height="80" />
+        <dc:Bounds x="1410" y="80" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1xf19va_di" bpmnElement="Activity_1j3z4n9">
-        <dc:Bounds x="1290" y="320" width="100" height="80" />
+        <dc:Bounds x="1410" y="320" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0r1ko0c" bpmnElement="Gateway_0lykb0q">
-        <dc:Bounds x="1485" y="225" width="50" height="50" />
+        <dc:Bounds x="1605" y="225" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0djppf4_di" bpmnElement="Event_0djppf4">
-        <dc:Bounds x="1632" y="232" width="36" height="36" />
+        <dc:Bounds x="1752" y="232" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0fcqp0x_di" bpmnElement="ProcessPayment">
-        <dc:Bounds x="890" y="217" width="100" height="80" />
+        <dc:Bounds x="1010" y="217" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1yo45qv_di" bpmnElement="Gateway_1yo45qv" isMarkerVisible="true">
-        <dc:Bounds x="1055" y="232" width="50" height="50" />
+        <dc:Bounds x="1175" y="232" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="152" y="239" width="36" height="36" />
@@ -106,62 +118,75 @@ Traveling should be tolerable, even when the motive behind it is your job. It do
         <dc:Bounds x="310" y="217" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0w51ivo_di" bpmnElement="Activity_1ljx3s5">
+      <bpmndi:BPMNShape id="Activity_0w51ivo_di" bpmnElement="BookReservation">
         <dc:Bounds x="480" y="217" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_167n0j2_di" bpmnElement="Flow_167n0j2">
-        <di:waypoint x="410" y="257" />
-        <di:waypoint x="480" y="257" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Gateway_1o57u50_di" bpmnElement="Gateway_1o57u50" isMarkerVisible="true">
+        <dc:Bounds x="655" y="232" width="50" height="50" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1opnolp_di" bpmnElement="Flow_1opnolp">
-        <di:waypoint x="750" y="257" />
-        <di:waypoint x="890" y="257" />
+        <di:waypoint x="870" y="257" />
+        <di:waypoint x="1010" y="257" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_04e0asf_di" bpmnElement="Flow_04e0asf">
-        <di:waypoint x="1180" y="232" />
-        <di:waypoint x="1180" y="120" />
-        <di:waypoint x="1290" y="120" />
+        <di:waypoint x="1300" y="232" />
+        <di:waypoint x="1300" y="120" />
+        <di:waypoint x="1410" y="120" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_19165vh_di" bpmnElement="Flow_19165vh">
-        <di:waypoint x="1180" y="282" />
-        <di:waypoint x="1180" y="360" />
-        <di:waypoint x="1290" y="360" />
+        <di:waypoint x="1300" y="282" />
+        <di:waypoint x="1300" y="360" />
+        <di:waypoint x="1410" y="360" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_13f2rv3_di" bpmnElement="Flow_13f2rv3">
-        <di:waypoint x="1390" y="120" />
         <di:waypoint x="1510" y="120" />
-        <di:waypoint x="1510" y="225" />
+        <di:waypoint x="1630" y="120" />
+        <di:waypoint x="1630" y="225" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_107g16h_di" bpmnElement="Flow_107g16h">
-        <di:waypoint x="1390" y="360" />
         <di:waypoint x="1510" y="360" />
-        <di:waypoint x="1510" y="275" />
+        <di:waypoint x="1630" y="360" />
+        <di:waypoint x="1630" y="275" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_05bpm6u_di" bpmnElement="Flow_05bpm6u">
-        <di:waypoint x="1535" y="250" />
-        <di:waypoint x="1632" y="250" />
+        <di:waypoint x="1655" y="250" />
+        <di:waypoint x="1752" y="250" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_10h16mc_di" bpmnElement="Flow_10h16mc">
-        <di:waypoint x="990" y="257" />
-        <di:waypoint x="1055" y="257" />
+        <di:waypoint x="1110" y="257" />
+        <di:waypoint x="1175" y="257" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0guabqq_di" bpmnElement="Flow_0guabqq">
-        <di:waypoint x="1105" y="257" />
-        <di:waypoint x="1155" y="257" />
+        <di:waypoint x="1225" y="257" />
+        <di:waypoint x="1275" y="257" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ri4xfy_di" bpmnElement="Flow_0ri4xfy">
-        <di:waypoint x="1080" y="232" />
-        <di:waypoint x="1080" y="170" />
-        <di:waypoint x="700" y="170" />
-        <di:waypoint x="700" y="217" />
+        <di:waypoint x="1200" y="232" />
+        <di:waypoint x="1200" y="170" />
+        <di:waypoint x="820" y="170" />
+        <di:waypoint x="820" y="217" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_05mk486_di" bpmnElement="Flow_05mk486">
         <di:waypoint x="580" y="257" />
-        <di:waypoint x="650" y="257" />
+        <di:waypoint x="655" y="257" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0o8n5w6_di" bpmnElement="Flow_1vtgycn">
         <di:waypoint x="188" y="257" />
         <di:waypoint x="310" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_167n0j2_di" bpmnElement="Flow_167n0j2">
+        <di:waypoint x="410" y="257" />
+        <di:waypoint x="480" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wdlpib_di" bpmnElement="Flow_0wdlpib">
+        <di:waypoint x="705" y="257" />
+        <di:waypoint x="770" y="257" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06yy28f_di" bpmnElement="Flow_06yy28f">
+        <di:waypoint x="680" y="232" />
+        <di:waypoint x="680" y="170" />
+        <di:waypoint x="360" y="170" />
+        <di:waypoint x="360" y="217" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
