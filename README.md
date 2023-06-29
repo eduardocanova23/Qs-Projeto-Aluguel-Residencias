@@ -257,7 +257,7 @@ The project should appear in localhost:8080
 
  <div align="center">
 <a>
-    <img src="InitialPage.PNG" alt="main page" width="800" height="340">
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/InitialPage.PNG?raw=true" alt="main page" >
   </a>
 
 </div>
@@ -266,27 +266,41 @@ After login, you can add a new available residence for rent in "Entity" from the
 
 <div align="center">
 <a>
-    <img src="menu.PNG" alt="menu" width="700" height="210">
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/menu.PNG?raw=true" alt="menu">
   </a>
-
+</div>
 For that , you'll need to select the "Living Quarters" option. Then, select "Create Living Quarters":
 
 <div align="center">
 <a>
-    <img src="newliving.PNG" alt="menu" width="400" height="80">
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/newliving.PNG?raw=true" alt="menu" >
   </a>
-
+</div>
 After this, a new form will appear which permits the addition of a residence offer
 
 <div align="center">
 <a>
-    <img src="residenceform.PNG" alt="menu" width="500" height="300">
+    <img alt="residenceform.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/residenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
-
+</div>
 After you deploy our bpmn process into agile kip, it should appear in Administration>Process Definitions:
 
 <div align="center">
 <a>
     <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/RentalPlan.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
+</div>
+When initialized, a new form will appear asking for the desired specifications about the residence that the user wants to book:
 
+<div align="center">
+<a>
+    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/bookresidenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+  </a>
+
+
+  After submitting it, a new process instance is created, in which a user can browse through the available residences that match his description:
+  <div align="center">
+<a>
+    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/processstarted.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+  </a>
+  </div>
