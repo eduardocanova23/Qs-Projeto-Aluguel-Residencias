@@ -275,3 +275,18 @@ For that , you'll need to select the "Living Quarters" option. Then, select "Cre
 <a>
     <img src="newliving.PNG" alt="menu" width="400" height="80">
   </a>
+
+After this, a new form will appear which permits the addition of a residence offer
+
+<div align="center">
+<a>
+    <img src="residenceform.PNG" alt="menu" width="500" height="300">
+  </a>
+
+After you deploy our bpmn process into agile kip, it should appear in Administration>Process Definitions:
+
+<div align="center">
+<a>
+    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/RentalPlan.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+  </a>
+
