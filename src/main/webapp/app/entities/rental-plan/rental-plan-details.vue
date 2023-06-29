@@ -67,6 +67,12 @@
             <span>{{ rentalPlan.expirationDate }}</span>
           </dd>
           <dt>
+            <span v-text="$t('airBnBFakeApp.rentalPlan.confirmation')">Confirmation</span>
+          </dt>
+          <dd>
+            <span>{{ rentalPlan.confirmation }}</span>
+          </dd>
+          <dt>
             <span v-text="$t('airBnBFakeApp.rentalPlan.livingQuarters')">Living Quarters</span>
           </dt>
           <dd>

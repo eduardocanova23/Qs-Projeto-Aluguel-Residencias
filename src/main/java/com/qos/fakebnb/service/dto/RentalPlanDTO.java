@@ -31,6 +31,8 @@ public class RentalPlanDTO implements Serializable {
 
     private LocalDate expirationDate;
 
+    private Boolean confirmation;
+
     private LivingQuartersDTO livingQuarters;
 
     public Long getId() {
@@ -121,6 +123,14 @@ public class RentalPlanDTO implements Serializable {
         this.expirationDate = expirationDate;
     }
 
+    public Boolean getConfirmation() {
+        return confirmation;
+    }
+
+    public void setConfirmation(Boolean confirmation) {
+        this.confirmation = confirmation;
+    }
+
     public LivingQuartersDTO getLivingQuarters() {
         return livingQuarters;
     }
@@ -165,6 +175,7 @@ public class RentalPlanDTO implements Serializable {
             ", cardNumber='" + getCardNumber() + "'" +
             ", cardVerificationValue='" + getCardVerificationValue() + "'" +
             ", expirationDate='" + getExpirationDate() + "'" +
+            ", confirmation='" + getConfirmation() + "'" +
             ", livingQuarters=" + getLivingQuarters() +
             "}";
     }

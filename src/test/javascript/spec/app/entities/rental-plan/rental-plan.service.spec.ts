@@ -44,7 +44,8 @@ describe('Service Tests', () => {
         'AAAAAAA',
         'AAAAAAA',
         'AAAAAAA',
-        currentDate
+        currentDate,
+        false
       );
     });
 
@@ -88,6 +89,7 @@ describe('Service Tests', () => {
             cardNumber: 'BBBBBB',
             cardVerificationValue: 'BBBBBB',
             expirationDate: dayjs(currentDate).format(DATE_FORMAT),
+            confirmation: true,
           },
           elemDefault
         );

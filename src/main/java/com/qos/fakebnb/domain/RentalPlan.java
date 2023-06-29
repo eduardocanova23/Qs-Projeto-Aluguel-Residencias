@@ -51,6 +51,9 @@ public class RentalPlan implements Serializable {
     @Column(name = "expiration_date")
     private LocalDate expirationDate;
 
+    @Column(name = "confirmation")
+    private Boolean confirmation;
+
     @ManyToOne
     private LivingQuarters livingQuarters;
 
@@ -198,6 +201,19 @@ public class RentalPlan implements Serializable {
         this.expirationDate = expirationDate;
     }
 
+    public Boolean getConfirmation() {
+        return this.confirmation;
+    }
+
+    public RentalPlan confirmation(Boolean confirmation) {
+        this.confirmation = confirmation;
+        return this;
+    }
+
+    public void setConfirmation(Boolean confirmation) {
+        this.confirmation = confirmation;
+    }
+
     public LivingQuarters getLivingQuarters() {
         return this.livingQuarters;
     }
@@ -245,6 +261,7 @@ public class RentalPlan implements Serializable {
             ", cardNumber='" + getCardNumber() + "'" +
             ", cardVerificationValue='" + getCardVerificationValue() + "'" +
             ", expirationDate='" + getExpirationDate() + "'" +
+            ", confirmation='" + getConfirmation() + "'" +
             "}";
     }
 }

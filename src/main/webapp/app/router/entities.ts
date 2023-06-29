@@ -54,6 +54,10 @@ const RentalPlanStartFormInit = () => import('@/entities/rental-plan-process/ren
 const RentalPlanProcess_PaymentDetailsTaskDetails = () => import('@/entities/rental-plan-process/payment-details-task/payment-details-task-details.vue');
 // prettier-ignore
 const RentalPlanProcess_PaymentDetailsTaskExecute = () => import('@/entities/rental-plan-process/payment-details-task/payment-details-task-execute.vue');
+// prettier-ignore
+const RentalPlanProcess_BookReservationTaskDetails = () => import('@/entities/rental-plan-process/book-reservation-task/book-reservation-task-details.vue');
+// prettier-ignore
+const RentalPlanProcess_BookReservationTaskExecute = () => import('@/entities/rental-plan-process/book-reservation-task/book-reservation-task-execute.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default [
@@ -187,6 +191,18 @@ export default [
     path: '/process-definition/RentalPlanProcess/task/PaymentDetails/:taskInstanceId/execute',
     name: 'RentalPlanProcess_PaymentDetailsTaskExecute',
     component: RentalPlanProcess_PaymentDetailsTaskExecute,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/RentalPlanProcess/task/BookReservation/:taskInstanceId/view',
+    name: 'RentalPlanProcess_BookReservationTaskDetails',
+    component: RentalPlanProcess_BookReservationTaskDetails,
+    meta: { authorities: [Authority.USER] },
+  },
+  {
+    path: '/process-definition/RentalPlanProcess/task/BookReservation/:taskInstanceId/execute',
+    name: 'RentalPlanProcess_BookReservationTaskExecute',
+    component: RentalPlanProcess_BookReservationTaskExecute,
     meta: { authorities: [Authority.USER] },
   },
   // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

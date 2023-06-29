@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "fieldName": "city",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "neighborhood",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "confirmation",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "RentalPlanProcess",
+  "processEntityName": "RentalPlanProcess",
+  "taskBpmnId": "BookReservation",
+  "domainEntityName": "RentalPlan",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "BookReservationTask",
+  "changelogDate": "20230613000003",
+  "skipFakeData": true
+}
