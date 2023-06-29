@@ -18,12 +18,16 @@
         "title": "Rental Plan Process"
       },
       "id": "ID",
-      "targetAddress": "Target Address",
+      "city": "City",
+      "neighborhood": "Neighborhood",
       "userName": "User Name",
       "userEmail": "User Email",
       "startDate": "Start Date",
       "endDate": "End Date",
       "rentalConfirmationNumber": "Rental Confirmation Number",
+      "cardNumber": "Card Number",
+      "cardVerificationValue": "Card Verification Value",
+      "expirationDate": "Expiration Date",
       "livingQuarters": "Living Quarters"
     }
   }

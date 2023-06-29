@@ -21,6 +21,8 @@
     <include file="config/liquibase/changelog/20211109000001_added_entity_LivingQuarters.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231109000005_added_entity_LivingQuarters.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20220401000004_added_entity_TaskBrowseResidences.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230613000003_added_entity_Payment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230613000003_added_entity_PaymentDetailsTask.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210401000001_added_entity_constraints_RentalPlan.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210401000002_added_entity_constraints_RentalPlanProcess.xml" relativeToChangelogFile="false"/>

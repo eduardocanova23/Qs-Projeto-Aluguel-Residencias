@@ -10,7 +10,8 @@ const validations: any = {
   taskContext: {
     rentalPlanProcess: {
       rentalPlan: {
-        targetAddress: {},
+        city: {},
+        neighborhood: {},
         userName: {},
         userEmail: {},
         startDate: {},

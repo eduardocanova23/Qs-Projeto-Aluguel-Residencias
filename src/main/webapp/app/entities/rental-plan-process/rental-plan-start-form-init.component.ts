@@ -10,8 +10,8 @@ import RentalPlanProcessService from './rental-plan-process.service';
 const validations: any = {
   rentalPlanProcess: {
     rentalPlan: {
-      targetCity: {},
-      targetNeighboorhood: {},
+      city: {},
+      neighboorhood: {},
       startDate: {},
       endDate: {},
       userName: {},

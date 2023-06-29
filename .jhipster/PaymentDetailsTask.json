@@ -1,0 +1,35 @@
+{
+  "fields": [
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldReadOnly": true
+    },
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardVerificationValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expirationDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "entityType": "user-task-form",
+  "processBpmnId": "RentalPlanProcess",
+  "processEntityName": "RentalPlanProcess",
+  "taskBpmnId": "PaymentDetails",
+  "domainEntityName": "RentalPlan",
+  "service": "serviceClass",
+  "dto": "mapstruct",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "no",
+  "name": "PaymentDetailsTask",
+  "changelogDate": "20230613000003",
+  "skipFakeData": true
+}

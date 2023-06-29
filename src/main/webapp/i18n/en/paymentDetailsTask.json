@@ -1,0 +1,27 @@
+{
+  "airBnBFakeApp": {
+    "paymentDetailsTask": {
+      "home": {
+        "title": "Payment Details Tasks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Details Task",
+        "createOrEditLabel": "Create or edit a Payment Details Task",
+        "notFound": "No Payment Details Tasks found"
+      },
+      "created": "A new Payment Details Task is created with identifier {{ param }}",
+      "updated": "A Payment Details Task is updated with identifier {{ param }}",
+      "deleted": "A Payment Details Task is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Details Task {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Details Task"
+      },
+      "id": "ID",
+      "userName": "User Name",
+      "cardNumber": "Card Number",
+      "cardVerificationValue": "Card Verification Value",
+      "expirationDate": "Expiration Date"
+    }
+  }
+}

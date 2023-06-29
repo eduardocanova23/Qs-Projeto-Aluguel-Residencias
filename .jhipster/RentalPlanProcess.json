@@ -1,7 +1,11 @@
 {
   "fields": [
     {
-      "fieldName": "targetAddress",
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "neighborhood",
       "fieldType": "String"
     },
     {
@@ -22,6 +26,18 @@
     },
     {
       "fieldName": "rentalConfirmationNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardVerificationValue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expirationDate",
       "fieldType": "String"
     }
   ],

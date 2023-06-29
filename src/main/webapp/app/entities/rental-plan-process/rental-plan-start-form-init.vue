@@ -15,43 +15,40 @@
               <hr />
               <div v-if="rentalPlanProcess.rentalPlan">
                 <div class="form-group">
-                  <label
-                    class="form-control-label"
-                    v-text="$t('airBnBFakeApp.rentalPlanStartForm.targetCity')"
-                    for="rental-plan-start-form-targetCity"
-                    >Target City</label
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.rentalPlanStartForm.city')" for="rental-plan-start-form-city"
+                    >City</label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    name="targetCity"
-                    id="rental-plan-start-form-targetCity"
-                    data-cy="targetCity"
+                    name="city"
+                    id="rental-plan-start-form-city"
+                    data-cy="city"
                     :class="{
-                      valid: !$v.rentalPlanProcess.rentalPlan.targetCity.$invalid,
-                      invalid: $v.rentalPlanProcess.rentalPlan.targetCity.$invalid,
+                      valid: !$v.rentalPlanProcess.rentalPlan.city.$invalid,
+                      invalid: $v.rentalPlanProcess.rentalPlan.city.$invalid,
                     }"
-                    v-model="$v.rentalPlanProcess.rentalPlan.targetCity.$model"
+                    v-model="$v.rentalPlanProcess.rentalPlan.city.$model"
                   />
                 </div>
                 <div class="form-group">
                   <label
                     class="form-control-label"
-                    v-text="$t('airBnBFakeApp.rentalPlanStartForm.targetNeighboorhood')"
-                    for="rental-plan-start-form-targetNeighboorhood"
-                    >Target Neighboorhood</label
+                    v-text="$t('airBnBFakeApp.rentalPlanStartForm.neighboorhood')"
+                    for="rental-plan-start-form-neighboorhood"
+                    >Neighboorhood</label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    name="targetNeighboorhood"
-                    id="rental-plan-start-form-targetNeighboorhood"
-                    data-cy="targetNeighboorhood"
+                    name="neighboorhood"
+                    id="rental-plan-start-form-neighboorhood"
+                    data-cy="neighboorhood"
                     :class="{
-                      valid: !$v.rentalPlanProcess.rentalPlan.targetNeighboorhood.$invalid,
-                      invalid: $v.rentalPlanProcess.rentalPlan.targetNeighboorhood.$invalid,
+                      valid: !$v.rentalPlanProcess.rentalPlan.neighboorhood.$invalid,
+                      invalid: $v.rentalPlanProcess.rentalPlan.neighboorhood.$invalid,
                     }"
-                    v-model="$v.rentalPlanProcess.rentalPlan.targetNeighboorhood.$model"
+                    v-model="$v.rentalPlanProcess.rentalPlan.neighboorhood.$model"
                   />
                 </div>
                 <div class="form-group">

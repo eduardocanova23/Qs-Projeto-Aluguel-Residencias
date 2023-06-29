@@ -18,8 +18,8 @@
         "title": "Rental Plan Start Form"
       },
       "id": "ID",
-      "targetCity": "Target City",
-      "targetNeighboorhood": "Target Neighboorhood",
+      "city": "City",
+      "neighboorhood": "Neighboorhood",
       "startDate": "Start Date",
       "endDate": "End Date",
       "userName": "User Name",

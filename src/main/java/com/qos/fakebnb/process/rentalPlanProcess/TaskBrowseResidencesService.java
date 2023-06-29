@@ -73,7 +73,8 @@ public class TaskBrowseResidencesService {
         RentalPlanDTO rentalPlanDTO = rentalPlanService
             .findOne(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getId())
             .orElseThrow();
-        rentalPlanDTO.setTargetAddress(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getTargetAddress());
+        rentalPlanDTO.setCity(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getCity());
+        rentalPlanDTO.setNeighborhood(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getNeighborhood());
         rentalPlanDTO.setUserName(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getUserName());
         rentalPlanDTO.setUserEmail(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getUserEmail());
         rentalPlanDTO.setStartDate(taskBrowseResidencesContext.getRentalPlanProcess().getRentalPlan().getStartDate());

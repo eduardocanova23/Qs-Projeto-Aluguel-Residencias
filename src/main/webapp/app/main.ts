@@ -34,6 +34,7 @@ import UserOAuth2Service from '@/entities/user/user.oauth2.service';
 import RentalPlanService from '@/entities/rental-plan/rental-plan.service';
 import RentalPlanProcessService from '@/entities/rental-plan-process/rental-plan-process.service';
 import LivingQuartersService from '@/entities/living-quarters/living-quarters.service';
+import PaymentService from '@/entities/payment/payment.service';
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
@@ -100,6 +101,7 @@ new Vue({
     rentalPlanService: () => new RentalPlanService(),
     rentalPlanProcessService: () => new RentalPlanProcessService(),
     livingQuartersService: () => new LivingQuartersService(),
+    paymentService: () => new PaymentService(),
     // jhipster-needle-add-entity-service-to-main - JHipster will import entities services here
     accountService: () => accountService,
   },

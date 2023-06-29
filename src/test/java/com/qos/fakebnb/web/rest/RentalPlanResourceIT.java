@@ -33,8 +33,11 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class RentalPlanResourceIT {
 
-    private static final String DEFAULT_TARGET_ADDRESS = "AAAAAAAAAA";
-    private static final String UPDATED_TARGET_ADDRESS = "BBBBBBBBBB";
+    private static final String DEFAULT_CITY = "AAAAAAAAAA";
+    private static final String UPDATED_CITY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NEIGHBORHOOD = "AAAAAAAAAA";
+    private static final String UPDATED_NEIGHBORHOOD = "BBBBBBBBBB";
 
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
@@ -50,6 +53,15 @@ class RentalPlanResourceIT {
 
     private static final String DEFAULT_RENTAL_CONFIRMATION_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_RENTAL_CONFIRMATION_NUMBER = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CARD_NUMBER = "AAAAAAAAAA";
+    private static final String UPDATED_CARD_NUMBER = "BBBBBBBBBB";
+
+    private static final String DEFAULT_CARD_VERIFICATION_VALUE = "AAAAAAAAAA";
+    private static final String UPDATED_CARD_VERIFICATION_VALUE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EXPIRATION_DATE = "AAAAAAAAAA";
+    private static final String UPDATED_EXPIRATION_DATE = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/rental-plans";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -79,12 +91,16 @@ class RentalPlanResourceIT {
      */
     public static RentalPlan createEntity(EntityManager em) {
         RentalPlan rentalPlan = new RentalPlan()
-            .targetAddress(DEFAULT_TARGET_ADDRESS)
+            .city(DEFAULT_CITY)
+            .neighborhood(DEFAULT_NEIGHBORHOOD)
             .userName(DEFAULT_USER_NAME)
             .userEmail(DEFAULT_USER_EMAIL)
             .startDate(DEFAULT_START_DATE)
             .endDate(DEFAULT_END_DATE)
-            .rentalConfirmationNumber(DEFAULT_RENTAL_CONFIRMATION_NUMBER);
+            .rentalConfirmationNumber(DEFAULT_RENTAL_CONFIRMATION_NUMBER)
+            .cardNumber(DEFAULT_CARD_NUMBER)
+            .cardVerificationValue(DEFAULT_CARD_VERIFICATION_VALUE)
+            .expirationDate(DEFAULT_EXPIRATION_DATE);
         return rentalPlan;
     }
 
@@ -96,12 +112,16 @@ class RentalPlanResourceIT {
      */
     public static RentalPlan createUpdatedEntity(EntityManager em) {
         RentalPlan rentalPlan = new RentalPlan()
-            .targetAddress(UPDATED_TARGET_ADDRESS)
+            .city(UPDATED_CITY)
+            .neighborhood(UPDATED_NEIGHBORHOOD)
             .userName(UPDATED_USER_NAME)
             .userEmail(UPDATED_USER_EMAIL)
             .startDate(UPDATED_START_DATE)
             .endDate(UPDATED_END_DATE)
-            .rentalConfirmationNumber(UPDATED_RENTAL_CONFIRMATION_NUMBER);
+            .rentalConfirmationNumber(UPDATED_RENTAL_CONFIRMATION_NUMBER)
+            .cardNumber(UPDATED_CARD_NUMBER)
+            .cardVerificationValue(UPDATED_CARD_VERIFICATION_VALUE)
+            .expirationDate(UPDATED_EXPIRATION_DATE);
         return rentalPlan;
     }
 
@@ -122,12 +142,16 @@ class RentalPlanResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(rentalPlan.getId().intValue())))
-            .andExpect(jsonPath("$.[*].targetAddress").value(hasItem(DEFAULT_TARGET_ADDRESS)))
+            .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
+            .andExpect(jsonPath("$.[*].neighborhood").value(hasItem(DEFAULT_NEIGHBORHOOD)))
             .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME)))
             .andExpect(jsonPath("$.[*].userEmail").value(hasItem(DEFAULT_USER_EMAIL)))
             .andExpect(jsonPath("$.[*].startDate").value(hasItem(DEFAULT_START_DATE.toString())))
             .andExpect(jsonPath("$.[*].endDate").value(hasItem(DEFAULT_END_DATE.toString())))
-            .andExpect(jsonPath("$.[*].rentalConfirmationNumber").value(hasItem(DEFAULT_RENTAL_CONFIRMATION_NUMBER)));
+            .andExpect(jsonPath("$.[*].rentalConfirmationNumber").value(hasItem(DEFAULT_RENTAL_CONFIRMATION_NUMBER)))
+            .andExpect(jsonPath("$.[*].cardNumber").value(hasItem(DEFAULT_CARD_NUMBER)))
+            .andExpect(jsonPath("$.[*].cardVerificationValue").value(hasItem(DEFAULT_CARD_VERIFICATION_VALUE)))
+            .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE)));
     }
 
     @Test
@@ -142,12 +166,16 @@ class RentalPlanResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(rentalPlan.getId().intValue()))
-            .andExpect(jsonPath("$.targetAddress").value(DEFAULT_TARGET_ADDRESS))
+            .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
+            .andExpect(jsonPath("$.neighborhood").value(DEFAULT_NEIGHBORHOOD))
             .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME))
             .andExpect(jsonPath("$.userEmail").value(DEFAULT_USER_EMAIL))
             .andExpect(jsonPath("$.startDate").value(DEFAULT_START_DATE.toString()))
             .andExpect(jsonPath("$.endDate").value(DEFAULT_END_DATE.toString()))
-            .andExpect(jsonPath("$.rentalConfirmationNumber").value(DEFAULT_RENTAL_CONFIRMATION_NUMBER));
+            .andExpect(jsonPath("$.rentalConfirmationNumber").value(DEFAULT_RENTAL_CONFIRMATION_NUMBER))
+            .andExpect(jsonPath("$.cardNumber").value(DEFAULT_CARD_NUMBER))
+            .andExpect(jsonPath("$.cardVerificationValue").value(DEFAULT_CARD_VERIFICATION_VALUE))
+            .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE));
     }
 
     @Test

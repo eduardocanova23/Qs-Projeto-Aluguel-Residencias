@@ -9,15 +9,27 @@
           <template v-slot:body>
             <hr />
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('airBnBFakeApp.taskBrowseResidences.targetAddress')">targetAddress</label>
+              <label class="form-control-label" v-text="$t('airBnBFakeApp.taskBrowseResidences.city')">city</label>
               <input
                 readonly
                 type="text"
                 class="form-control"
-                name="targetAddress"
-                id="rental-plan-targetAddress"
-                data-cy="targetAddress"
-                v-model="taskContext.rentalPlanProcess.rentalPlan.targetAddress"
+                name="city"
+                id="rental-plan-city"
+                data-cy="city"
+                v-model="taskContext.rentalPlanProcess.rentalPlan.city"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-control-label" v-text="$t('airBnBFakeApp.taskBrowseResidences.neighborhood')">neighborhood</label>
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                name="neighborhood"
+                id="rental-plan-neighborhood"
+                data-cy="neighborhood"
+                v-model="taskContext.rentalPlanProcess.rentalPlan.neighborhood"
               />
             </div>
             <div class="form-group">

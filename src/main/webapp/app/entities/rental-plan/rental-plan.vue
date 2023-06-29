@@ -18,12 +18,16 @@
         <thead>
           <tr>
             <th scope="row"><span v-text="$t('global.field.id')">ID</span></th>
-            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.targetAddress')">Target Address</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.city')">City</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.neighborhood')">Neighborhood</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.userName')">User Name</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.userEmail')">User Email</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.startDate')">Start Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.endDate')">End Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.rentalConfirmationNumber')">Rental Confirmation Number</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.cardNumber')">Card Number</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.cardVerificationValue')">Card Verification Value</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.expirationDate')">Expiration Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.rentalPlan.livingQuarters')">Living Quarters</span></th>
             <th scope="row"></th>
           </tr>
@@ -33,12 +37,16 @@
             <td>
               <router-link :to="{ name: 'RentalPlanView', params: { rentalPlanId: rentalPlan.id } }">{{ rentalPlan.id }}</router-link>
             </td>
-            <td>{{ rentalPlan.targetAddress }}</td>
+            <td>{{ rentalPlan.city }}</td>
+            <td>{{ rentalPlan.neighborhood }}</td>
             <td>{{ rentalPlan.userName }}</td>
             <td>{{ rentalPlan.userEmail }}</td>
             <td>{{ rentalPlan.startDate }}</td>
             <td>{{ rentalPlan.endDate }}</td>
             <td>{{ rentalPlan.rentalConfirmationNumber }}</td>
+            <td>{{ rentalPlan.cardNumber }}</td>
+            <td>{{ rentalPlan.cardVerificationValue }}</td>
+            <td>{{ rentalPlan.expirationDate }}</td>
             <td>
               <div v-if="rentalPlan.livingQuarters">
                 <router-link :to="{ name: 'LivingQuartersView', params: { livingQuartersId: rentalPlan.livingQuarters.id } }">{{

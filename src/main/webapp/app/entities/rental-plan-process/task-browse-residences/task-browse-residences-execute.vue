@@ -9,24 +9,42 @@
           <template v-slot:body>
             <hr />
             <div class="form-group">
-              <label
-                class="form-control-label"
-                v-text="$t('airBnBFakeApp.taskBrowseResidences.targetAddress')"
-                for="task-browse-residences-targetAddress"
-                >Target Address</label
+              <label class="form-control-label" v-text="$t('airBnBFakeApp.taskBrowseResidences.city')" for="task-browse-residences-city"
+                >City</label
               >
               <input
                 type="text"
                 class="form-control"
-                name="targetAddress"
-                id="task-browse-residences-targetAddress"
+                name="city"
+                id="task-browse-residences-city"
                 readonly
-                data-cy="targetAddress"
+                data-cy="city"
                 :class="{
-                  valid: !$v.taskContext.rentalPlanProcess.rentalPlan.targetAddress.$invalid,
-                  invalid: $v.taskContext.rentalPlanProcess.rentalPlan.targetAddress.$invalid,
+                  valid: !$v.taskContext.rentalPlanProcess.rentalPlan.city.$invalid,
+                  invalid: $v.taskContext.rentalPlanProcess.rentalPlan.city.$invalid,
                 }"
-                v-model="$v.taskContext.rentalPlanProcess.rentalPlan.targetAddress.$model"
+                v-model="$v.taskContext.rentalPlanProcess.rentalPlan.city.$model"
+              />
+            </div>
+            <div class="form-group">
+              <label
+                class="form-control-label"
+                v-text="$t('airBnBFakeApp.taskBrowseResidences.neighborhood')"
+                for="task-browse-residences-neighborhood"
+                >Neighborhood</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                name="neighborhood"
+                id="task-browse-residences-neighborhood"
+                readonly
+                data-cy="neighborhood"
+                :class="{
+                  valid: !$v.taskContext.rentalPlanProcess.rentalPlan.neighborhood.$invalid,
+                  invalid: $v.taskContext.rentalPlanProcess.rentalPlan.neighborhood.$invalid,
+                }"
+                v-model="$v.taskContext.rentalPlanProcess.rentalPlan.neighborhood.$model"
               />
             </div>
             <div class="form-group">

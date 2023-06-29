@@ -18,7 +18,8 @@ public interface TaskBrowseResidencesMapper {
 
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
-    @Mapping(target = "targetAddress", source = "targetAddress")
+    @Mapping(target = "city", source = "city")
+    @Mapping(target = "neighborhood", source = "neighborhood")
     @Mapping(target = "userName", source = "userName")
     @Mapping(target = "userEmail", source = "userEmail")
     @Mapping(target = "startDate", source = "startDate")

@@ -18,7 +18,8 @@
         "title": "Task Browse Residences"
       },
       "id": "ID",
-      "targetAddress": "Target Address",
+      "city": "City",
+      "neighborhood": "Neighborhood",
       "userName": "User Name",
       "userEmail": "User Email",
       "startDate": "Start Date",

@@ -1,11 +1,11 @@
 {
   "fields": [
     {
-      "fieldName": "targetCity",
+      "fieldName": "city",
       "fieldType": "String"
     },
     {
-      "fieldName": "targetNeighboorhood",
+      "fieldName": "neighborhood",
       "fieldType": "String"
     },
     {
