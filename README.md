@@ -193,3 +193,65 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [protractor]: https://angular.github.io/protractor/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/
+
+
+
+
+## FakeBNB Process description
+
+We have chosen to implement a process for house and apartment renting in this project. To model the business process, Camunda 7 was used
+
+<p align="center">
+    <br />
+    <a href="https://camunda.com/download/modeler/"><strong>You can download it here »</strong></a>
+    <br />
+    <br />
+    
+  </p>
+</div>
+
+The modelled process is the following:
+
+<div align="center">
+<a>
+    <img src="DefinitiveProcess.PNG" alt="Logo" width="800" height="240">
+  </a>
+
+</div>
+
+To execute the project you will need to pull the agilekip docker image. Open a terminal and run:
+
+```
+docker pull agilekip/generator-jhipster-agilekip:v0.0.12
+```
+
+In the same terminal, create the jhipster container:
+
+```
+docker run --name generator-jhipster-pais -v $PWD:/home/jhipster/app -d -t agilekip/generator-jhipster-pais:v0.0.6
+```
+
+
+
+Now open the container's bash: 
+
+```
+docker container exec -it generator-jhipster-pais
+```
+
+Navigate to the project folder:
+
+```
+cd FakeBNB
+```
+
+And finally run:
+```
+jhipster entity RentalPlan
+```
+
+Accept all the options offered. The next step is to execute the project in another terminal:
+
+```
+./mvnw
+```
