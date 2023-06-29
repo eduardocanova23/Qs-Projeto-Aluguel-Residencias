@@ -8,7 +8,7 @@ const validations: any = {
     paymentProcess: {
       payment: {
         cardNumber: {},
-        CVV: {},
+        cardVerificationValue: {},
         expirationDate: {},
         phoneNumber: {},
       },

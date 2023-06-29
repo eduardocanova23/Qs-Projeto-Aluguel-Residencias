@@ -72,7 +72,7 @@ public class PaymentDetailsTaskService {
     public void save(PaymentDetailsTaskContextDTO paymentDetailsTaskContext) {
         PaymentDTO paymentDTO = paymentService.findOne(paymentDetailsTaskContext.getPaymentProcess().getPayment().getId()).orElseThrow();
         paymentDTO.setCardNumber(paymentDetailsTaskContext.getPaymentProcess().getPayment().getCardNumber());
-        paymentDTO.setCVV(paymentDetailsTaskContext.getPaymentProcess().getPayment().getCVV());
+        paymentDTO.setCardVerificationValue(paymentDetailsTaskContext.getPaymentProcess().getPayment().getCardVerificationValue());
         paymentDTO.setExpirationDate(paymentDetailsTaskContext.getPaymentProcess().getPayment().getExpirationDate());
         paymentDTO.setPhoneNumber(paymentDetailsTaskContext.getPaymentProcess().getPayment().getPhoneNumber());
         paymentService.save(paymentDTO);

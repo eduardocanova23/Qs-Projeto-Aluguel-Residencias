@@ -13,10 +13,10 @@
             <span>{{ payment.cardNumber }}</span>
           </dd>
           <dt>
-            <span v-text="$t('airBnBFakeApp.payment.CVV')">CVV</span>
+            <span v-text="$t('airBnBFakeApp.payment.cardVerificationValue')">Card Verification Value</span>
           </dt>
           <dd>
-            <span>{{ payment.CVV }}</span>
+            <span>{{ payment.cardVerificationValue }}</span>
           </dd>
           <dt>
             <span v-text="$t('airBnBFakeApp.payment.expirationDate')">Expiration Date</span>

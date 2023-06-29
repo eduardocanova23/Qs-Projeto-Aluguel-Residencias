@@ -34,8 +34,8 @@ class PaymentResourceIT {
     private static final String DEFAULT_CARD_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_CARD_NUMBER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CVV = "AAAAAAAAAA";
-    private static final String UPDATED_CVV = "BBBBBBBBBB";
+    private static final String DEFAULT_CARD_VERIFICATION_VALUE = "AAAAAAAAAA";
+    private static final String UPDATED_CARD_VERIFICATION_VALUE = "BBBBBBBBBB";
 
     private static final String DEFAULT_EXPIRATION_DATE = "AAAAAAAAAA";
     private static final String UPDATED_EXPIRATION_DATE = "BBBBBBBBBB";
@@ -78,7 +78,7 @@ class PaymentResourceIT {
     public static Payment createEntity(EntityManager em) {
         Payment payment = new Payment()
             .cardNumber(DEFAULT_CARD_NUMBER)
-            .CVV(DEFAULT_CVV)
+            .cardVerificationValue(DEFAULT_CARD_VERIFICATION_VALUE)
             .expirationDate(DEFAULT_EXPIRATION_DATE)
             .userName(DEFAULT_USER_NAME)
             .userEmail(DEFAULT_USER_EMAIL)
@@ -95,7 +95,7 @@ class PaymentResourceIT {
     public static Payment createUpdatedEntity(EntityManager em) {
         Payment payment = new Payment()
             .cardNumber(UPDATED_CARD_NUMBER)
-            .CVV(UPDATED_CVV)
+            .cardVerificationValue(UPDATED_CARD_VERIFICATION_VALUE)
             .expirationDate(UPDATED_EXPIRATION_DATE)
             .userName(UPDATED_USER_NAME)
             .userEmail(UPDATED_USER_EMAIL)
@@ -121,7 +121,7 @@ class PaymentResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(payment.getId().intValue())))
             .andExpect(jsonPath("$.[*].cardNumber").value(hasItem(DEFAULT_CARD_NUMBER)))
-            .andExpect(jsonPath("$.[*].CVV").value(hasItem(DEFAULT_CVV)))
+            .andExpect(jsonPath("$.[*].cardVerificationValue").value(hasItem(DEFAULT_CARD_VERIFICATION_VALUE)))
             .andExpect(jsonPath("$.[*].expirationDate").value(hasItem(DEFAULT_EXPIRATION_DATE)))
             .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME)))
             .andExpect(jsonPath("$.[*].userEmail").value(hasItem(DEFAULT_USER_EMAIL)))
@@ -141,7 +141,7 @@ class PaymentResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(payment.getId().intValue()))
             .andExpect(jsonPath("$.cardNumber").value(DEFAULT_CARD_NUMBER))
-            .andExpect(jsonPath("$.CVV").value(DEFAULT_CVV))
+            .andExpect(jsonPath("$.cardVerificationValue").value(DEFAULT_CARD_VERIFICATION_VALUE))
             .andExpect(jsonPath("$.expirationDate").value(DEFAULT_EXPIRATION_DATE))
             .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME))
             .andExpect(jsonPath("$.userEmail").value(DEFAULT_USER_EMAIL))

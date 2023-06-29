@@ -17,7 +17,7 @@ public interface PaymentDetailsTaskMapper {
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
     @Mapping(target = "cardNumber", source = "cardNumber")
-    @Mapping(target = "CVV", source = "CVV")
+    @Mapping(target = "cardVerificationValue", source = "cardVerificationValue")
     @Mapping(target = "expirationDate", source = "expirationDate")
     @Mapping(target = "phoneNumber", source = "phoneNumber")
     PaymentDTO toPaymentDTO(Payment payment);

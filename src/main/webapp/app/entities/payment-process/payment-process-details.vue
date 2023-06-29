@@ -30,15 +30,17 @@
               </div>
               <div class="card-body py-0">
                 <div class="form-group">
-                  <label class="form-control-label" v-text="$t('airBnBFakeApp.paymentProcess.CVV')">CVV</label>
+                  <label class="form-control-label" v-text="$t('airBnBFakeApp.paymentProcess.cardVerificationValue')"
+                    >cardVerificationValue</label
+                  >
                   <input
                     readonly
                     type="text"
                     class="form-control"
-                    name="CVV"
-                    id="payment-CVV"
-                    data-cy="CVV"
-                    v-model="paymentProcess.payment.CVV"
+                    name="cardVerificationValue"
+                    id="payment-cardVerificationValue"
+                    data-cy="cardVerificationValue"
+                    v-model="paymentProcess.payment.cardVerificationValue"
                   />
                 </div>
               </div>

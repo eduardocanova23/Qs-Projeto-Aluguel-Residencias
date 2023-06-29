@@ -23,8 +23,8 @@ public class Payment implements Serializable {
     @Column(name = "card_number")
     private String cardNumber;
 
-    @Column(name = "cvv")
-    private String CVV;
+    @Column(name = "card_verification_value")
+    private String cardVerificationValue;
 
     @Column(name = "expiration_date")
     private String expirationDate;
@@ -65,17 +65,17 @@ public class Payment implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public String getCVV() {
-        return this.CVV;
+    public String getCardVerificationValue() {
+        return this.cardVerificationValue;
     }
 
-    public Payment CVV(String CVV) {
-        this.CVV = CVV;
+    public Payment cardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
         return this;
     }
 
-    public void setCVV(String CVV) {
-        this.CVV = CVV;
+    public void setCardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
     }
 
     public String getExpirationDate() {
@@ -155,7 +155,7 @@ public class Payment implements Serializable {
         return "Payment{" +
             "id=" + getId() +
             ", cardNumber='" + getCardNumber() + "'" +
-            ", CVV='" + getCVV() + "'" +
+            ", cardVerificationValue='" + getCardVerificationValue() + "'" +
             ", expirationDate='" + getExpirationDate() + "'" +
             ", userName='" + getUserName() + "'" +
             ", userEmail='" + getUserEmail() + "'" +

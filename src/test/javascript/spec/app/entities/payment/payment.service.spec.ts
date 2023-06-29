@@ -56,7 +56,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             cardNumber: 'BBBBBB',
-            CVV: 'BBBBBB',
+            cardVerificationValue: 'BBBBBB',
             expirationDate: 'BBBBBB',
             userName: 'BBBBBB',
             userEmail: 'BBBBBB',

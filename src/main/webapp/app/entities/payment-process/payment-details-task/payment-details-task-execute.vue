@@ -29,20 +29,23 @@
               />
             </div>
             <div class="form-group">
-              <label class="form-control-label" v-text="$t('airBnBFakeApp.paymentDetailsTask.CVV')" for="payment-details-task-CVV"
-                >CVV</label
+              <label
+                class="form-control-label"
+                v-text="$t('airBnBFakeApp.paymentDetailsTask.cardVerificationValue')"
+                for="payment-details-task-cardVerificationValue"
+                >Card Verification Value</label
               >
               <input
                 type="text"
                 class="form-control"
-                name="CVV"
-                id="payment-details-task-CVV"
-                data-cy="CVV"
+                name="cardVerificationValue"
+                id="payment-details-task-cardVerificationValue"
+                data-cy="cardVerificationValue"
                 :class="{
-                  valid: !$v.taskContext.paymentProcess.payment.CVV.$invalid,
-                  invalid: $v.taskContext.paymentProcess.payment.CVV.$invalid,
+                  valid: !$v.taskContext.paymentProcess.payment.cardVerificationValue.$invalid,
+                  invalid: $v.taskContext.paymentProcess.payment.cardVerificationValue.$invalid,
                 }"
-                v-model="$v.taskContext.paymentProcess.payment.CVV.$model"
+                v-model="$v.taskContext.paymentProcess.payment.cardVerificationValue.$model"
               />
             </div>
             <div class="form-group">

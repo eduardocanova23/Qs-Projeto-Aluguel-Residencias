@@ -19,7 +19,7 @@
           <tr>
             <th scope="row"><span v-text="$t('global.field.id')">ID</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.payment.cardNumber')">Card Number</span></th>
-            <th scope="row"><span v-text="$t('airBnBFakeApp.payment.CVV')">CVV</span></th>
+            <th scope="row"><span v-text="$t('airBnBFakeApp.payment.cardVerificationValue')">Card Verification Value</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.payment.expirationDate')">Expiration Date</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.payment.userName')">User Name</span></th>
             <th scope="row"><span v-text="$t('airBnBFakeApp.payment.userEmail')">User Email</span></th>
@@ -33,7 +33,7 @@
               <router-link :to="{ name: 'PaymentView', params: { paymentId: payment.id } }">{{ payment.id }}</router-link>
             </td>
             <td>{{ payment.cardNumber }}</td>
-            <td>{{ payment.CVV }}</td>
+            <td>{{ payment.cardVerificationValue }}</td>
             <td>{{ payment.expirationDate }}</td>
             <td>{{ payment.userName }}</td>
             <td>{{ payment.userEmail }}</td>

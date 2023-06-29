@@ -12,7 +12,7 @@ public class PaymentDTO implements Serializable {
 
     private String cardNumber;
 
-    private String CVV;
+    private String cardVerificationValue;
 
     private String expirationDate;
 
@@ -38,12 +38,12 @@ public class PaymentDTO implements Serializable {
         this.cardNumber = cardNumber;
     }
 
-    public String getCVV() {
-        return CVV;
+    public String getCardVerificationValue() {
+        return cardVerificationValue;
     }
 
-    public void setCVV(String CVV) {
-        this.CVV = CVV;
+    public void setCardVerificationValue(String cardVerificationValue) {
+        this.cardVerificationValue = cardVerificationValue;
     }
 
     public String getExpirationDate() {
@@ -105,7 +105,7 @@ public class PaymentDTO implements Serializable {
         return "PaymentDTO{" +
             "id=" + getId() +
             ", cardNumber='" + getCardNumber() + "'" +
-            ", CVV='" + getCVV() + "'" +
+            ", cardVerificationValue='" + getCardVerificationValue() + "'" +
             ", expirationDate='" + getExpirationDate() + "'" +
             ", userName='" + getUserName() + "'" +
             ", userEmail='" + getUserEmail() + "'" +

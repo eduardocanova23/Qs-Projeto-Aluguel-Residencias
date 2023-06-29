@@ -19,7 +19,7 @@
       },
       "id": "ID",
       "cardNumber": "Card Number",
-      "CVV": "CVV",
+      "cardVerificationValue": "Card Verification Value",
       "expirationDate": "Expiration Date",
       "phoneNumber": "Phone Number"
     }
