@@ -29,7 +29,7 @@ public class RentalPlanDTO implements Serializable {
 
     private String cardVerificationValue;
 
-    private String expirationDate;
+    private LocalDate expirationDate;
 
     private LivingQuartersDTO livingQuarters;
 
@@ -113,11 +113,11 @@ public class RentalPlanDTO implements Serializable {
         this.cardVerificationValue = cardVerificationValue;
     }
 
-    public String getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(String expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 

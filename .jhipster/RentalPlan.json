@@ -38,7 +38,7 @@
     },
     {
       "fieldName": "expirationDate",
-      "fieldType": "String"
+      "fieldType": "LocalDate"
     }
   ],
   "relationships": [

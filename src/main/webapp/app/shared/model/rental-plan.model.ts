@@ -11,7 +11,7 @@ export interface IRentalPlan {
   rentalConfirmationNumber?: string | null;
   cardNumber?: string | null;
   cardVerificationValue?: string | null;
-  expirationDate?: string | null;
+  expirationDate?: Date | null;
   livingQuarters?: ILivingQuarters | null;
 }
 
@@ -27,7 +27,7 @@ export class RentalPlan implements IRentalPlan {
     public rentalConfirmationNumber?: string | null,
     public cardNumber?: string | null,
     public cardVerificationValue?: string | null,
-    public expirationDate?: string | null,
+    public expirationDate?: Date | null,
     public livingQuarters?: ILivingQuarters | null
   ) {}
 }

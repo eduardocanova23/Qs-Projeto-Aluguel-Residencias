@@ -17,7 +17,7 @@
             <column name="city" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="neighboorhood" type="varchar(255)">
+            <column name="neighborhood" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="start_date" type="date">

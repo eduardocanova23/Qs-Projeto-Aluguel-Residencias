@@ -41,7 +41,7 @@
             <column name="card_verification_value" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="expiration_date" type="varchar(255)">
+            <column name="expiration_date" type="date">
                 <constraints nullable="true" />
             </column>
             <column name="living_quarters_id" type="bigint">

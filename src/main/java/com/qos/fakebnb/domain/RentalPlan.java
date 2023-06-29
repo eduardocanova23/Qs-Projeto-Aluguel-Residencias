@@ -49,7 +49,7 @@ public class RentalPlan implements Serializable {
     private String cardVerificationValue;
 
     @Column(name = "expiration_date")
-    private String expirationDate;
+    private LocalDate expirationDate;
 
     @ManyToOne
     private LivingQuarters livingQuarters;
@@ -185,16 +185,16 @@ public class RentalPlan implements Serializable {
         this.cardVerificationValue = cardVerificationValue;
     }
 
-    public String getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return this.expirationDate;
     }
 
-    public RentalPlan expirationDate(String expirationDate) {
+    public RentalPlan expirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
         return this;
     }
 
-    public void setExpirationDate(String expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 

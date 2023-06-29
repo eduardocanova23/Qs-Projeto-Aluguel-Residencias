@@ -34,21 +34,21 @@
                 <div class="form-group">
                   <label
                     class="form-control-label"
-                    v-text="$t('airBnBFakeApp.rentalPlanStartForm.neighboorhood')"
-                    for="rental-plan-start-form-neighboorhood"
-                    >Neighboorhood</label
+                    v-text="$t('airBnBFakeApp.rentalPlanStartForm.neighborhood')"
+                    for="rental-plan-start-form-neighborhood"
+                    >Neighborhood</label
                   >
                   <input
                     type="text"
                     class="form-control"
-                    name="neighboorhood"
-                    id="rental-plan-start-form-neighboorhood"
-                    data-cy="neighboorhood"
+                    name="neighborhood"
+                    id="rental-plan-start-form-neighborhood"
+                    data-cy="neighborhood"
                     :class="{
-                      valid: !$v.rentalPlanProcess.rentalPlan.neighboorhood.$invalid,
-                      invalid: $v.rentalPlanProcess.rentalPlan.neighboorhood.$invalid,
+                      valid: !$v.rentalPlanProcess.rentalPlan.neighborhood.$invalid,
+                      invalid: $v.rentalPlanProcess.rentalPlan.neighborhood.$invalid,
                     }"
-                    v-model="$v.rentalPlanProcess.rentalPlan.neighboorhood.$model"
+                    v-model="$v.rentalPlanProcess.rentalPlan.neighborhood.$model"
                   />
                 </div>
                 <div class="form-group">

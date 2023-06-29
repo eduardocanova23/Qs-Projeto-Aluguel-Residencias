@@ -11,7 +11,7 @@ const validations: any = {
   rentalPlanProcess: {
     rentalPlan: {
       city: {},
-      neighboorhood: {},
+      neighborhood: {},
       startDate: {},
       endDate: {},
       userName: {},
