@@ -214,7 +214,7 @@ The modelled process is the following:
 
 <div align="center">
 <a>
-    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/PROCESSONOVO.png?raw=true" alt="Logo" >
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/PROCESSONOVO.png?raw=true" alt="Logo" >
   </a>
 
 </div>
@@ -257,7 +257,7 @@ The project should appear in localhost:8080
 
  <div align="center">
 <a>
-    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/InitialPage.PNG?raw=true" alt="main page" >
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/InitialPage.PNG?raw=true" alt="main page" >
   </a>
 
 </div>
@@ -266,42 +266,42 @@ After login, you can add a new available residence for rent in "Entity" from the
 
 <div align="center">
 <a>
-    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/menu.PNG?raw=true" alt="menu">
+    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/menu.PNG?raw=true" alt="menu">
   </a>
 </div>
 For that , you'll need to select the "Living Quarters" option. Then, select "Create Living Quarters":
 
 <div align="center">
 <a>
-    <img src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/newliving.PNG?raw=true" alt="menu" >
+    < src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/newliving.PNG?raw=true" alt="menu" >
   </a>
 </div>
 After this, a new form will appear which permits the addition of a residence offer
 
 <div align="center">
 <a>
-    <img alt="residenceform.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/residenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+    <img alt="residenceform.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/residenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
 </div>
 After you deploy our bpmn process into agile kip, it should appear in Administration>Process Definitions:
 
 <div align="center">
 <a>
-    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/RentalPlan.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/RentalPlan.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
 </div>
 When initialized, a new form will appear asking for the desired specifications about the residence that the user wants to book:
 
 <div align="center">
 <a>
-    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/bookresidenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+    <img alt="RentalPlan.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/bookresidenceform.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
 
 
   After submitting it, a new process instance is created, in which a user can browse through the available residences that match his description:
   <div align="center">
 <a>
-    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/processstarted.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/processstarted.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
   </div>
 
@@ -309,6 +309,6 @@ You can then edit the payment details so the purchase can be efectuaded:
 
   <div align="center">
 <a>
-    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/paymentdetails.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
+    <img alt="processstarted.PNG" src="https://github.com/eduardocanova23/Qs-Projeto-Aluguel-Residencias/blob/main/misc/paymentdetails.PNG?raw=true" data-hpc="true" class="Box-sc-g0xbh4-0 kzRgrI">
   </a>
   </div>
